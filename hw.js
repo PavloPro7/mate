@@ -11,4 +11,4 @@ function isWerewolf(target){
     return direct === indirect;
 } 
 
-console.log(isWerewolf('wolf'));
+console.log(isWerewolf('level'));
