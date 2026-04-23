@@ -86,8 +86,19 @@
 // }
 // console.log(countNetworking(3, 4));
 
-function convertCurrency(amount, exchangeRate, currencyName) {
-  const x = Math.round((amount * exchangeRate) * 100) / 100;
-  return (amount >= 0 && exchangeRate > 0) ? `Give them ${x} ${currencyName}(s)` : 'Enter valid data';
+// function convertCurrency(amount, exchangeRate, currencyName) {
+//   const x = Math.round((amount * exchangeRate) * 100) / 100;
+//   return (amount >= 0 && exchangeRate > 0) ? `Give them ${x} ${currencyName}(s)` : 'Enter valid data';
+// }
+// console.log(convertCurrency(100, 0, 'euro'));
+
+function getPlan(startProduction, numberOfMonths, percent) {
+  const goals = [];
+  for (let i = 0; i < numberOfMonths; i++) {
+    startProduction = (startProduction * percent / 100) + startProduction;
+    goals.push(Math.floor(startProduction));
+
+  }
+  return goals;
 }
-console.log(convertCurrency(100, 0, 'euro'));
+console.log(getPlan(1000, 6, 20));
