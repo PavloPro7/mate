@@ -75,13 +75,19 @@
 
 // console.log(Math.round(num * 100) / 100);\
 
-function countNetworking(quarantineLength, frequency) {
-  // write code here
-  const monthInYear = 11;
-  let result = 0;
-  for (let i = quarantineLength; i <= monthInYear; i++) {
-    result++;
-  }
-  return Math.ceil(result / frequency);
+// function countNetworking(quarantineLength, frequency) {
+//   // write code here
+//   const monthInYear = 11;
+//   let result = 0;
+//   for (let i = quarantineLength; i <= monthInYear; i++) {
+//     result++;
+//   }
+//   return Math.ceil(result / frequency);
+// }
+// console.log(countNetworking(3, 4));
+
+function convertCurrency(amount, exchangeRate, currencyName) {
+  const x = Math.round((amount * exchangeRate) * 100) / 100;
+  return (amount >= 0 && exchangeRate > 0) ? `Give them ${x} ${currencyName}(s)` : 'Enter valid data';
 }
-console.log(countNetworking(3, 4));
+console.log(convertCurrency(100, 0, 'euro'));
