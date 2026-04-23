@@ -92,13 +92,30 @@
 // }
 // console.log(convertCurrency(100, 0, 'euro'));
 
-function getPlan(startProduction, numberOfMonths, percent) {
-  const goals = [];
-  for (let i = 0; i < numberOfMonths; i++) {
-    startProduction = (startProduction * percent / 100) + startProduction;
-    goals.push(Math.floor(startProduction));
+// function getPlan(startProduction, numberOfMonths, percent) {
+//   const goals = [];
+//   for (let i = 0; i < numberOfMonths; i++) {
+//     startProduction = (startProduction * percent / 100) + startProduction;
+//     goals.push(Math.floor(startProduction));
 
+//   }
+//   return goals;
+// }
+// console.log(getPlan(1000, 6, 20));
+
+function getMinAndMax(numbers) {
+  let min = numbers[0];
+  for (let num of numbers) {
+    if (num < min) {
+      min = num;
+    }
   }
-  return goals;
+  let max = numbers[0];
+  for (let num of numbers) {
+    if (num > max) {
+      max = num;
+    }
+  }
+  return `min = ${min}; max = ${max}`;
 }
-console.log(getPlan(1000, 6, 20));
+console.log(getMinAndMax([3, 54, 0b10, 10]))
