@@ -124,18 +124,31 @@
 // console.log(+null);
 // num = 53;
 // console.log(num.toString(16)); //converting into hexadecimal count system.
-console.log(Number.MAX_VALUE); //1.7976931348623157e+308
-console.log(Number.MAX_SAFE_INTEGER); //9007199254740991
-console.log(typeof 342345234523452345234n) //bigint
-console.log(isFinite(Number.MAX_SAFE_INTEGER)) //true
-console.log(NaN === NaN); //false
-console.log(isNaN(NaN))
+// console.log(Number.MAX_VALUE); //1.7976931348623157e+308
+// console.log(Number.MAX_SAFE_INTEGER); //9007199254740991
+// console.log(typeof 342345234523452345234n) //bigint
+// console.log(isFinite(Number.MAX_SAFE_INTEGER)) //true
+// console.log(NaN === NaN); //false
+// console.log(isNaN(NaN))
 
-function getGuestsCount(guestInput) {
-  const correctNumber = parseInt(guestInput);
-  if (isNaN(correctNumber)) {
-    return 'not a number';
-  }
+// function getGuestsCount(guestInput) {
+//   const correctNumber = parseInt(guestInput);
+//   if (isNaN(correctNumber)) {
+//     return 'not a number';
+//   }
 
-  return correctNumber;
+//   return correctNumber;
+// }
+
+//console.log(Number(Math.random().toFixed(2)))
+
+
+
+function getRandomNumber(min, max) {
+  const result = [];
+  for (let i = 0; i < 10; i++) {
+    result.push(Math.floor(min + Math.random() * (max + 1 - min)));
 }
+  return result;
+}
+console.log(getRandomNumber(5, 9))
