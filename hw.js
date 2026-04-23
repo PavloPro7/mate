@@ -41,15 +41,28 @@
 //   count++; // CRITICAL: Always change the condition inside, or it runs forever!
 // }
 
-function getSuccessRate(statistic) {
+// function getSuccessRate(statistic) {
+//   // write code here
+//   let sum = statistic.length;
+//   let succeed = 0;
+//   for (let stat of statistic) {
+//     if (stat == 1) {
+//       succeed++;
+//     } 
+//   }
+//   return (sum !== 0) ? 100 * succeed / sum : 0;
+// }
+// console.log(getSuccessRate('110111000001'));
+
+function makeDecision(fuelRemaining, distance, fuelConsumption) {
   // write code here
-  let sum = statistic.length;
-  let succeed = 0;
-  for (let stat of statistic) {
-    if (stat == 1) {
-      succeed++;
-    } 
+  if (fuelRemaining < 0 || distance <= 0 || fuelConsumption <= 0) {
+    return 'please, enter the valid data';
   }
-  return (sum !== 0) ? 100 * succeed / sum : 0;
+
+  let drivingRange = fuelRemaining / fuelConsumption;
+  return ((drivingRange * 100) >= distance) ? 'reach gas station by themselves' : 'ask for help';
+
 }
-console.log(getSuccessRate('110111000001'));
+
+console.log(makeDecision(-1, -5, 1000));
