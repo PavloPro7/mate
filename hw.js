@@ -103,19 +103,39 @@
 // }
 // console.log(getPlan(1000, 6, 20));
 
-function getMinAndMax(numbers) {
-  let min = numbers[0];
-  for (let num of numbers) {
-    if (num < min) {
-      min = num;
-    }
+// function getMinAndMax(numbers) {
+//   let min = numbers[0];
+//   for (let num of numbers) {
+//     if (num < min) {
+//       min = num;
+//     }
+//   }
+//   let max = numbers[0];
+//   for (let num of numbers) {
+//     if (num > max) {
+//       max = num;
+//     }
+//   }
+//   return `min = ${min}; max = ${max}`;
+// }
+// console.log(getMinAndMax([3, 54, 0b10, 10]))
+
+// console.log(+true);
+// console.log(+null);
+// num = 53;
+// console.log(num.toString(16)); //converting into hexadecimal count system.
+console.log(Number.MAX_VALUE); //1.7976931348623157e+308
+console.log(Number.MAX_SAFE_INTEGER); //9007199254740991
+console.log(typeof 342345234523452345234n) //bigint
+console.log(isFinite(Number.MAX_SAFE_INTEGER)) //true
+console.log(NaN === NaN); //false
+console.log(isNaN(NaN))
+
+function getGuestsCount(guestInput) {
+  const correctNumber = parseInt(guestInput);
+  if (isNaN(correctNumber)) {
+    return 'not a number';
   }
-  let max = numbers[0];
-  for (let num of numbers) {
-    if (num > max) {
-      max = num;
-    }
-  }
-  return `min = ${min}; max = ${max}`;
+
+  return correctNumber;
 }
-console.log(getMinAndMax([3, 54, 0b10, 10]))
