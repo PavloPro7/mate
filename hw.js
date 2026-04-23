@@ -54,15 +54,34 @@
 // }
 // console.log(getSuccessRate('110111000001'));
 
-function makeDecision(fuelRemaining, distance, fuelConsumption) {
+// function makeDecision(fuelRemaining, distance, fuelConsumption) {
+//   // write code here
+//   if (fuelRemaining < 0 || distance <= 0 || fuelConsumption <= 0) {
+//     return 'please, enter the valid data';
+//   }
+
+//   let drivingRange = fuelRemaining / fuelConsumption;
+//   return ((drivingRange * 100) >= distance) ? 'reach gas station by themselves' : 'ask for help';
+
+// }
+
+// console.log(makeDecision(-1, -5, 1000));
+
+
+// let num = 3.53796;
+// console.log(+num.toFixed(2));
+// console.log(num.toPrecision(4));
+
+
+// console.log(Math.round(num * 100) / 100);\
+
+function countNetworking(quarantineLength, frequency) {
   // write code here
-  if (fuelRemaining < 0 || distance <= 0 || fuelConsumption <= 0) {
-    return 'please, enter the valid data';
+  const monthInYear = 11;
+  let result = 0;
+  for (let i = quarantineLength; i <= monthInYear; i++) {
+    result++;
   }
-
-  let drivingRange = fuelRemaining / fuelConsumption;
-  return ((drivingRange * 100) >= distance) ? 'reach gas station by themselves' : 'ask for help';
-
+  return Math.ceil(result / frequency);
 }
-
-console.log(makeDecision(-1, -5, 1000));
+console.log(countNetworking(3, 4));
