@@ -164,12 +164,29 @@
 
 // console.log(sum);
 
-const DAYS_IN_YEAR = 365;
-const MONTH_IN_YEAR = 12;
+// const DAYS_IN_YEAR = 365;
+// const MONTH_IN_YEAR = 12;
 
-for (let yearsAgo = 0; yearsAgo < 2026; yearsAgo++) {
-  let daysAgo = yearsAgo * DAYS_IN_YEAR;
-  let monthAgo = yearsAgo * MONTH_IN_YEAR;
+// for (let yearsAgo = 0; yearsAgo < 2026; yearsAgo++) {
+//   let daysAgo = yearsAgo * DAYS_IN_YEAR;
+//   let monthAgo = yearsAgo * MONTH_IN_YEAR;
 
-  console.log(`${yearsAgo} ${monthAgo} ${daysAgo}`);
+//   console.log(`${yearsAgo} ${monthAgo} ${daysAgo}`);
+// }
+// let sum = 0;
+// for (i = 0; i < 15; i++) {
+//   sum = sum + i;
+//   console.log(sum);
+// }
+
+
+function calculateProfit(amount, percent, period) {
+  let expectedReturn = amount;
+  for (let i = 0; i < period; i++) {
+    expectedReturn = expectedReturn + expectedReturn * (percent / 100);
+  }
+  return +(expectedReturn - amount).toFixed(2);
 }
+
+
+console.log(calculateProfit(1000, 5.5, 7))
