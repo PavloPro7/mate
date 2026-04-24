@@ -144,11 +144,23 @@
 
 
 
-function getRandomNumber(min, max) {
-  const result = [];
-  for (let i = 0; i < 10; i++) {
-    result.push(Math.floor(min + Math.random() * (max + 1 - min)));
+// function getRandomNumber(min, max) {
+//   const result = [];
+//   for (let i = 0; i < 10; i++) {
+//     result.push(Math.floor(min + Math.random() * (max + 1 - min)));
+// }
+//   return result;
+// }
+// console.log(getRandomNumber(5, 9))
+
+
+const n = 7;
+let sum = 0;
+
+debugger;
+
+for (let i = 1; i <= n; i++) {
+  sum += i;
 }
-  return result;
-}
-console.log(getRandomNumber(5, 9))
+
+console.log(sum);
