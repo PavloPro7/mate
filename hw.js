@@ -27,6 +27,7 @@
 //   console.log("You have a " + item);
 // }
 
+
 // // 1. Start: let i = 0
 // // 2. Condition: run as long as i < 5
 // // 3. Step: increase i by 1 after each loop (i++)
@@ -154,13 +155,21 @@
 // console.log(getRandomNumber(5, 9))
 
 
-const n = 7;
-let sum = 0;
+// const n = 7;
+// let sum = 0;
 
-debugger;
+// for (let i = 1; i <= n; i++) {
+//   sum += i;
+// }
 
-for (let i = 1; i <= n; i++) {
-  sum += i;
+// console.log(sum);
+
+const DAYS_IN_YEAR = 365;
+const MONTH_IN_YEAR = 12;
+
+for (let yearsAgo = 0; yearsAgo < 2026; yearsAgo++) {
+  let daysAgo = yearsAgo * DAYS_IN_YEAR;
+  let monthAgo = yearsAgo * MONTH_IN_YEAR;
+
+  console.log(`${yearsAgo} ${monthAgo} ${daysAgo}`);
 }
-
-console.log(sum);
