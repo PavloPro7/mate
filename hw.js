@@ -191,44 +191,50 @@
 
 // console.log(calculateProfit(1000, 5.5, 7))
 
-function splitString(str) {
-   if (str.length === 0) {
-    return [];
-  }
-  let evenStrings = [];
+// function splitString(str) {
+//    if (str.length === 0) {
+//     return [];
+//   }
+//   let evenStrings = [];
 
-  for (let i = 0; i < str.length; i += 2) {
-    evenStrings.push(str.slice(i, i + 2));
+//   for (let i = 0; i < str.length; i += 2) {
+//     evenStrings.push(str.slice(i, i + 2));
+//   }
+//   if (evenStrings[evenStrings.length - 1].length < 2) {
+//     evenStrings[evenStrings.length - 1] += '_'
+//   }
+//   return evenStrings;
+// }
+// console.log(splitString('auto '));
+
+
+
+// function splitString(str) {
+
+//     if (str.length % 2 !== 0) {
+//     str += '_';
+//   }
+
+//   let evenStrings = [];
+//   for (let i = 1; i < str.length; i += 2) {
+//     evenStrings.push(str[i - 1] + str[i]);
+//   }
+//   return evenStrings;
+// }
+// console.log(splitString('work '))
+
+
+let i = 0;
+let j = 1;
+
+for (;;) {
+  if (!(j > -2)) {
+    break;
   }
-  if (evenStrings[evenStrings.length - 1].length < 2) {
-    evenStrings[evenStrings.length - 1] += '_'
-  }
-  return evenStrings;
+
+  console.log(j, i);
+
+  i++;
+  j--;
 }
-
-
-
-console.log(splitString('work '))
-
-
-
-function splitString(str) {
-  let string = str
-  
-    if (string.length % 2 !== 0) {
-    string += '_';
-  }
-
-  let evenStrings = [];
-  for (let i = 1; i < string.length; i += 2) {
-    evenStrings.push(string[i - 1] + string[i]);
-  }
-  if (string.length % 2 !== 0) {
-    string += '_';
-  }
-  return evenStrings;
-}
-
-
-
-console.log(splitString('work '))
+console.log(i);
