@@ -224,17 +224,38 @@
 // console.log(splitString('work '))
 
 
-let i = 0;
-let j = 1;
+// let i = 0;
+// let j = 1;
 
-for (;;) {
-  if (!(j > -2)) {
+// for (;;) {
+//   if (!(j > -2)) {
+//     break;
+//   }
+
+//   console.log(j, i);
+
+//   i++;
+//   j--;
+// }
+// console.log(i);
+
+// for (let i = 0; i < 10; i++) {
+//   if (i % 2 === 0) {
+//     continue;
+//   }
+//   console.log(i);
+// }
+
+let n = 4096;
+let numbersList = [];
+
+for (; n > 0; n = n / 2) {
+  if (n < 2) {
     break;
   }
-
-  console.log(j, i);
-
-  i++;
-  j--;
+  if (!Number.isInteger(n)) {
+    break;
+  }
+  numbersList.push(n);
 }
-console.log(i);
+console.log(numbersList.length);
