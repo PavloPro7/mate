@@ -246,16 +246,52 @@
 //   console.log(i);
 // }
 
-let n = 4096;
-let numbersList = [];
+// let n = 4096;
+// let numbersList = [];
 
-for (; n > 0; n = n / 2) {
-  if (n < 2) {
-    break;
-  }
+// for (; n > 0; n = n / 2) {
+//   if (n < 2) {
+//     break;
+//   }
+//   if (!Number.isInteger(n)) {
+//     break;
+//   }
+//   numbersList.push(n);
+// }
+// console.log(numbersList.length);
+
+// let n = 2;
+// let count = 0;
+// for (; Number.isInteger(n);) {
+//   n /= 2;
+//   count++;
+// }
+
+// console.log(count - 1);
+
+// let n = 2.1;
+// let count = 0;
+// // while (Number.isInteger(n)) {
+// //   n /= 2;
+// //   count++;
+// // }
+// do {
+//   n /= 2;
+//   count++;
+// } while (Number.isInteger(n))
+// console.log(count - 1);
+
+let n = 256;
+let count = 0;
+
+while (true) {
+  n /= 2;
+
   if (!Number.isInteger(n)) {
     break;
   }
-  numbersList.push(n);
+
+  count++;
 }
-console.log(numbersList.length);
+
+console.log(count);
