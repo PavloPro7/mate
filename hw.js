@@ -365,27 +365,59 @@
 // }
 // console.log(isSpecialNumber(126));
 
-function isTidy(n) {
-  // write code here
-  const numberString = String(n);
-  let numberCheck = '';
+// function isTidy(n) {
+//   // write code here
+//   const numberString = String(n);
+//   let numberCheck = '';
 
-  for (let i = 1; i <= numberString.length; i++) {
-    if (numberString[i - 1] <= numberString[i] || numberString[i] === undefined) {
-      numberCheck += numberString[i - 1]
-    }
+//   for (let i = 1; i <= numberString.length; i++) {
+//     if (numberString[i - 1] <= numberString[i] || numberString[i] === undefined) {
+//       numberCheck += numberString[i - 1]
+//     }
     
-  }
+//   }
   
-    if (numberString == numberCheck) {
-      return true;
-    }
-    return false;
-}
+//     if (numberString == numberCheck) {
+//       return true;
+//     }
+//     return false;
+// }
 
-console.log(isTidy(124444456));
+// console.log(isTidy(124444456));
 
-let string = '00001223';
-let digit = 1225;
+let string = '1';
+let digit = 0;
 
 console.log(digit - string)
+
+// function isJumping(n) {
+
+//   if (String(n).length === 1) {
+//     return 'JUMPING';
+//   }
+//   // write code here
+//   let previous = 0;
+//   for (let digit of String(n)) {
+//     if ((previous - digit) !== 1 && (previous - digit) !== -1 && typeof previous !== 'number'){
+//       return 'NOT JUMPING';
+//     }
+//     previous = digit;
+//   }
+//   return 'JUMPING';
+// }
+
+function isJumping(n) {
+  const str = String(n);
+
+  for (let i = 1; i < str.length; i++) {
+    const diff = str[i] - str[i - 1];
+
+    if (diff !== 1 && diff !== -1) {
+      return 'NOT JUMPING';
+    }
+  }
+
+  return 'JUMPING';
+}
+console.log(isJumping(3))
+console.log(typeof digit) //'number'
