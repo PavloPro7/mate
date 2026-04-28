@@ -303,8 +303,17 @@
 //   n = Math.random();
 // }
 
-const title = 'Some thing';
-
+const title = 'Some thing - \'\x53\x6f\x6d\x65\x20\x74\x68\x69\x6e\x67\'';
+console.log(title.codePointAt(10));
 console.log(title[title.length - 1]); //g
 console.log(title.at(-1)); //g
 console.log(title.charAt(title.length - 1)); //g
+console.log(title)
+
+
+let str = '';
+for (let i = 1; i < 256; i++) {
+  str += String.fromCodePoint(i);
+}
+
+console.log(str);
