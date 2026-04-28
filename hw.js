@@ -344,23 +344,48 @@
 //   String(x).length.toString(),
 // )
 
-function isSpecialNumber(n) {
-  const specialNumber = '012345';
+// function isSpecialNumber(n) {
+//   const specialNumber = '012345';
+//   const numberString = String(n);
+//   let string = '';
+
+//   for (let i = 0; i < numberString.length;) {
+
+//     string += numberString[i];
+//     if (!specialNumber.includes(numberString[i])) {
+//       string += ' ';
+//       break;
+//     }
+//     i++;
+//   }
+//   if (string == numberString) {
+//     return 'Special!!'
+//   }
+//   return 'NOT!!'
+// }
+// console.log(isSpecialNumber(126));
+
+function isTidy(n) {
+  // write code here
   const numberString = String(n);
-  let string = '';
+  let numberCheck = '';
 
-  for (let i = 0; i < numberString.length;) {
-
-    string += numberString[i];
-    if (!specialNumber.includes(numberString[i])) {
-      string += ' ';
-      break;
+  for (let i = 1; i <= numberString.length; i++) {
+    if (numberString[i - 1] <= numberString[i] || numberString[i] === undefined) {
+      numberCheck += numberString[i - 1]
     }
-    i++;
+    
   }
-  if (string == numberString) {
-    return 'Special!!'
-  }
-  return 'NOT!!'
+  
+    if (numberString == numberCheck) {
+      return true;
+    }
+    return false;
 }
-console.log(isSpecialNumber(126));
+
+console.log(isTidy(124444456));
+
+let string = '00001223';
+let digit = 1225;
+
+console.log(digit - string)
