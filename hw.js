@@ -281,17 +281,30 @@
 // } while (Number.isInteger(n))
 // console.log(count - 1);
 
-let n = 256;
-let count = 0;
+// let n = 256;
+// let count = 0;
 
-while (true) {
-  n /= 2;
+// while (true) {
+//   n /= 2;
 
-  if (!Number.isInteger(n)) {
-    break;
-  }
+//   if (!Number.isInteger(n)) {
+//     break;
+//   }
 
-  count++;
-}
+//   count++;
+// }
 
-console.log(count);
+// console.log(count);
+
+// let n = Math.random();
+
+// while (n <= 0.9) {
+//   console.log(n);
+//   n = Math.random();
+// }
+
+const title = 'Some thing';
+
+console.log(title[title.length - 1]); //g
+console.log(title.at(-1)); //g
+console.log(title.charAt(title.length - 1)); //g
