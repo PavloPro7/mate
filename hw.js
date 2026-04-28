@@ -303,17 +303,64 @@
 //   n = Math.random();
 // }
 
-const title = 'Some thing - \'\x53\x6f\x6d\x65\x20\x74\x68\x69\x6e\x67\'';
-console.log(title.codePointAt(10));
-console.log(title[title.length - 1]); //g
-console.log(title.at(-1)); //g
-console.log(title.charAt(title.length - 1)); //g
-console.log(title)
+// const title = 'Some thing - \'\x53\x6f\x6d\x65\x20\x74\x68\x69\x6e\x67\'';
+// console.log(title.codePointAt(10));
+// console.log(title[title.length - 1]); //g
+// console.log(title.at(-1)); //g
+// console.log(title.charAt(title.length - 1)); //g
+// console.log(title)
 
 
-let str = '';
-for (let i = 1; i < 256; i++) {
-  str += String.fromCodePoint(i);
+// let str = '';
+// for (let i = 1; i < 256; i++) {
+//   str += String.fromCodePoint(i);
+// }
+
+// console.log(str);
+
+// const name1 = 'їжак';
+// const name2 = 'яблуко';
+// console.log (
+//   name1.localeCompare(name2) > 0
+// )
+
+// console.log('Ö' > 'Z'); //true
+// //but
+// console.log('Ö'.localeCompare('Z')); // -1
+
+// let x = 3452345;
+// // let count = 0;
+
+// // do {
+// //   x /= 10;
+// //   count++;
+// // } while (x >= 1)
+// // console.log(count);
+
+// console.log(
+//   x.toString(),
+//   '' + x, //concatenation
+//   `${x}`, //interpolation
+//   String(x).length.toString(),
+// )
+
+function isSpecialNumber(n) {
+  const specialNumber = '012345';
+  const numberString = String(n);
+  let string = '';
+
+  for (let i = 0; i < numberString.length;) {
+
+    string += numberString[i];
+    if (!specialNumber.includes(numberString[i])) {
+      string += ' ';
+      break;
+    }
+    i++;
+  }
+  if (string == numberString) {
+    return 'Special!!'
+  }
+  return 'NOT!!'
 }
-
-console.log(str);
+console.log(isSpecialNumber(126));
