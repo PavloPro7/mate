@@ -461,31 +461,78 @@
 
 // let number = 'My number is 2565930';
 // console.log(`Your number is ${number.slice(13)}`);
-console.log('robot'.slice(3), 'robot'.slice(0, 3));
+// console.log('robot'.slice(3), 'robot'.slice(0, 3));
 
-function scrollingText(word) {
-  let wordUpperCase = word.toUpperCase();
-  let result = [];
+// function scrollingText(word) {
+//   let wordUpperCase = word.toUpperCase();
+//   let result = [];
 
-  for (let i = 0; i < wordUpperCase.length; i++) {
-    result.push(wordUpperCase);
-    wordUpperCase = wordUpperCase.slice(1) + wordUpperCase.slice(0, 1);
+//   for (let i = 0; i < wordUpperCase.length; i++) {
+//     result.push(wordUpperCase);
+//     wordUpperCase = wordUpperCase.slice(1) + wordUpperCase.slice(0, 1);
     
-  }
-  return result;
+//   }
+//   return result;
+// }
+
+// function scrollingText(word) {
+//   const result = [];
+
+//   for (let i = 0; i < word.length; i++) {
+//     const part = word.slice(i) + word.slice(0, i);
+
+//     result.push(part.toUpperCase());
+//   }
+
+//   return result;
+// }
+
+
+// console.log(scrollingText('fork'));
+
+// const string = 'banana';
+
+// for (let ch of string) {
+//   console.log(ch);
+// }
+
+
+
+
+
+//////              Functions               ///////
+
+function sum(a, b = 2) {
+  console.log(a, b);
+}
+sum(2);
+
+
+//first way of asignment function to variable.
+let operation = function(a = 0, b = 0, ...args) {
+  console.log(args);
+  return a + b;
 }
 
-function scrollingText(word) {
-  const result = [];
-
-  for (let i = 0; i < word.length; i++) {
-    const part = word.slice(i) + word.slice(0, i);
-
-    result.push(part.toUpperCase());
-  }
-
-  return result;
+//second way of asignment function to variable.
+let operation2 = (a = 0, b = 0, ...args) => {
+  console.log(args);
+  return a + b;
 }
 
+//third way of asignment function to variable.
+let operation3 = (a = 0, b = 0, ...args) => a + b;
 
-console.log(scrollingText('fork'));
+let operation4 = a => a + 10;
+
+console.log(
+  operation(1, 2),
+  operation2(1, 2),
+  operation3(1, 2),
+  operation4(1),
+);
+
+let square = function(a) {
+  return a * a;
+};
+let square2 = a => a * a;
