@@ -435,15 +435,57 @@
 //   return char.toLowerCase() !== char.toUpperCase(); //check is there inputed char as letter
 // }
 
-function makeAbbr(words) {
-  // write code here
-  let abbr = words[0].toUpperCase();
+// function makeAbbr(words) {
+//   // write code here
+//   let abbr = words[0].toUpperCase();
 
-  for (let i = 1; i < words.length; i++) {
-    if (words[i - 1] === ' ') {
-      abbr += words[i].toUpperCase();
-    }
-  }
+//   for (let i = 1; i < words.length; i++) {
+//     if (words[i - 1] === ' ') {
+//       abbr += words[i].toUpperCase();
+//     }
+//   }
   
-  return abbr;
+//   return abbr;
+// }
+
+// console.log('\x20/'); // ' ' - spacing
+
+// let label = 'Mate academy'
+// console.log(label.toLowerCase().includes('mate')); //true
+// console.log(label.startsWith('mate')); //false
+// console.log(label.endsWith('emy')); //true
+// console.log(label.indexOf('e', 2)); //3
+// console.log(label.indexOf('a', 4)); //5
+// console.log(label.lastIndexOf('academy')); //5
+// console.log('word'.slice(-3, -1));
+
+// let number = 'My number is 2565930';
+// console.log(`Your number is ${number.slice(13)}`);
+console.log('robot'.slice(3), 'robot'.slice(0, 3));
+
+function scrollingText(word) {
+  let wordUpperCase = word.toUpperCase();
+  let result = [];
+
+  for (let i = 0; i < wordUpperCase.length; i++) {
+    result.push(wordUpperCase);
+    wordUpperCase = wordUpperCase.slice(1) + wordUpperCase.slice(0, 1);
+    
+  }
+  return result;
 }
+
+function scrollingText(word) {
+  const result = [];
+
+  for (let i = 0; i < word.length; i++) {
+    const part = word.slice(i) + word.slice(0, i);
+
+    result.push(part.toUpperCase());
+  }
+
+  return result;
+}
+
+
+console.log(scrollingText('fork'));
