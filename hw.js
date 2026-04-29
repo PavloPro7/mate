@@ -419,18 +419,31 @@
 // console.log(isJumping(3))
 // console.log(typeof digit) //'number'
 
-let string = '4 30 8 ';
-let digit = 0;
+// let string = '4 30 8 ';
+// let digit = 0;
 
-console.log(
-  string.repeat(4), '\n', 
-  string.padStart(20, '**** '), '\n', 
-  string.padEnd(20, '**** '), '\n',
-  string.trim(), '\n', //trimStart, trimEnd 
-  string.replaceAll(' ', ''), '\n' //.replace(' ', '') - substitute only one
+// console.log(
+//   string.repeat(4), '\n', 
+//   string.padStart(20), '\n', //              4 30 8
+//   string.padEnd(20, '**** '), '\n',
+//   string.trim(), '\n', //trimStart, trimEnd 
+//   string.replaceAll(' ', ''), '\n' //.replace(' ', '') - substitute only one
 
-);
+// );
 
-function isLetter(char) {
-  return char.toLowerCase() !== char.toUpperCase(); //check is there inputed char as letter
+// function isLetter(char) {
+//   return char.toLowerCase() !== char.toUpperCase(); //check is there inputed char as letter
+// }
+
+function makeAbbr(words) {
+  // write code here
+  let abbr = words[0].toUpperCase();
+
+  for (let i = 1; i < words.length; i++) {
+    if (words[i - 1] === ' ') {
+      abbr += words[i].toUpperCase();
+    }
+  }
+  
+  return abbr;
 }
