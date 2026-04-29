@@ -558,27 +558,42 @@
 //   console.log('Many');
 // }
 
-function getName(count) {
-  switch (count) {
-  case 10:
-  case 20:
-    return 'One or Two';
-  default:
-    return 'Many';
-}
-}
-console.log(getName(30));
+// function getName(count) {
+//   switch (count) {
+//   case 10:
+//   case 20:
+//     return 'One or Two';
+//   default:
+//     return 'Many';
+// }
+// }
+// console.log(getName(30));
 
-function findCalculationType(a, b, res) {
-  switch (res) {
-    case a + b:
-      return 'addition';
-    case a - b:
-      return 'subtraction';
-    case a / b:
-      return 'division';
-    case a * b:
-      return 'multiplication';
+// function findCalculationType(a, b, res) {
+//   switch (res) {
+//     case a + b:
+//       return 'addition';
+//     case a - b:
+//       return 'subtraction';
+//     case a / b:
+//       return 'division';
+//     case a * b:
+//       return 'multiplication';
+//   }
+
+// }
+
+function getName(count) {
+
+  switch (true) {
+    case count < 2:
+      return 'One';
+    
+    default:
+      return 'Many';
   }
 
 }
+console.log(getName(1))
+
+console.log(5 === 5 > 4)
