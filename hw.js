@@ -385,10 +385,7 @@
 
 // console.log(isTidy(124444456));
 
-let string = '1';
-let digit = 0;
 
-console.log(digit - string)
 
 // function isJumping(n) {
 
@@ -406,18 +403,34 @@ console.log(digit - string)
 //   return 'JUMPING';
 // }
 
-function isJumping(n) {
-  const str = String(n);
+// function isJumping(n) {
+//   const str = String(n);
 
-  for (let i = 1; i < str.length; i++) {
-    const diff = str[i] - str[i - 1];
+//   for (let i = 1; i < str.length; i++) {
+//     const diff = str[i] - str[i - 1];
 
-    if (diff !== 1 && diff !== -1) {
-      return 'NOT JUMPING';
-    }
-  }
+//     if (diff !== 1 && diff !== -1) {
+//       return 'NOT JUMPING';
+//     }
+//   }
 
-  return 'JUMPING';
+//   return 'JUMPING';
+// }
+// console.log(isJumping(3))
+// console.log(typeof digit) //'number'
+
+let string = '4 30 8 ';
+let digit = 0;
+
+console.log(
+  string.repeat(4), '\n', 
+  string.padStart(20, '**** '), '\n', 
+  string.padEnd(20, '**** '), '\n',
+  string.trim(), '\n', //trimStart, trimEnd 
+  string.replaceAll(' ', ''), '\n' //.replace(' ', '') - substitute only one
+
+);
+
+function isLetter(char) {
+  return char.toLowerCase() !== char.toUpperCase(); //check is there inputed char as letter
 }
-console.log(isJumping(3))
-console.log(typeof digit) //'number'
