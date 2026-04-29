@@ -500,39 +500,85 @@
 
 
 
-//////              Functions               ///////
+// //////              Functions               ///////
 
-function sum(a, b = 2) {
-  console.log(a, b);
+// function sum(a, b = 2) {
+//   console.log(a, b);
+// }
+// sum(2);
+
+
+// //first way of asignment function to variable.
+// let operation = function(a = 0, b = 0, ...args) {
+//   console.log(args);
+//   return a + b;
+// }
+
+// //second way of asignment function to variable.
+// let operation2 = (a = 0, b = 0, ...args) => {
+//   console.log(args);
+//   return a + b;
+// }
+
+// //third way of asignment function to variable.
+// let operation3 = (a = 0, b = 0, ...args) => a + b;
+
+// let operation4 = a => a + 10;
+
+// console.log(
+//   operation(1, 2),
+//   operation2(1, 2),
+//   operation3(1, 2),
+//   operation4(1),
+// );
+
+// let square = function(a) {
+//   return a * a;
+// };
+// let square2 = a => a * a;
+
+// let getString = () => {
+//   const jobTitle = 'I am a programmer';
+//   return jobTitle;
+// }
+// console.log(getString())
+
+
+
+///         Switch Case           ///
+
+
+
+
+// if (count === 1) {
+//   console.log('One');
+// } else if (count === 2) {
+//   console.log('Two');
+// } else {
+//   console.log('Many');
+// }
+
+function getName(count) {
+  switch (count) {
+  case 10:
+  case 20:
+    return 'One or Two';
+  default:
+    return 'Many';
 }
-sum(2);
-
-
-//first way of asignment function to variable.
-let operation = function(a = 0, b = 0, ...args) {
-  console.log(args);
-  return a + b;
 }
+console.log(getName(30));
 
-//second way of asignment function to variable.
-let operation2 = (a = 0, b = 0, ...args) => {
-  console.log(args);
-  return a + b;
+function findCalculationType(a, b, res) {
+  switch (res) {
+    case a + b:
+      return 'addition';
+    case a - b:
+      return 'subtraction';
+    case a / b:
+      return 'division';
+    case a * b:
+      return 'multiplication';
+  }
+
 }
-
-//third way of asignment function to variable.
-let operation3 = (a = 0, b = 0, ...args) => a + b;
-
-let operation4 = a => a + 10;
-
-console.log(
-  operation(1, 2),
-  operation2(1, 2),
-  operation3(1, 2),
-  operation4(1),
-);
-
-let square = function(a) {
-  return a * a;
-};
-let square2 = a => a * a;
