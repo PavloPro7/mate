@@ -583,17 +583,51 @@
 
 // }
 
-function getName(count) {
+// function getName(count) {
 
-  switch (true) {
-    case count < 2:
-      return 'One';
+//   switch (true) {
+//     case count < 2:
+//       return 'One';
     
-    default:
-      return 'Many';
-  }
+//     default:
+//       return 'Many';
+//   }
 
+// }
+// console.log(getName(1))
+
+// console.log(5 === 5 > 4)
+
+
+///       Type Conversion      ///
+
+//false, '', 0, NaN, 0n, null, undefined
+// [], () => {}, {} - true
+
+// const value = 0;
+
+// if (value) {
+//   console.log(
+//     +Boolean(value), +!!value
+//   )
+// }
+
+const decodeSignal = input => +!!input 
+
+function decodeSignal2(input) {
+  // write code here
+  return (input) ? 1 : 0;
 }
-console.log(getName(1))
 
-console.log(5 === 5 > 4)
+const getWinner = (maxSolved, romanSolved) => {
+  switch (true) {
+    case (maxSolved > romanSolved):
+      return 'Max is the winner!!!';
+    case (maxSolved < romanSolved):
+      return 'Roman is the winner!!!';
+    default:
+      return 'Roman and Maxim are the winners!!!';
+  }
+}
+
+console.log(getWinner('23', '24'))
