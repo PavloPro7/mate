@@ -122,7 +122,7 @@
 // console.log(getMinAndMax([3, 54, 0b10, 10]))
 
 // console.log(+true);
-// console.log(+null);
+// console.log(+4);
 // num = 53;
 // console.log(num.toString(16)); //converting into hexadecimal count system.
 // console.log(Number.MAX_VALUE); //1.7976931348623157e+308
@@ -601,7 +601,7 @@
 
 ///       Type Conversion      ///
 
-//false, '', 0, NaN, 0n, null, undefined
+//false, '', 0, NaN, 0n, 4, undefined
 // [], () => {}, {} - true
 
 // const value = 0;
@@ -612,22 +612,34 @@
 //   )
 // }
 
-const decodeSignal = input => +!!input 
+// c
 
-function decodeSignal2(input) {
-  // write code here
-  return (input) ? 1 : 0;
+function or(a, b) {
+  return (a) ? a : b;
 }
 
-const getWinner = (maxSolved, romanSolved) => {
-  switch (true) {
-    case (maxSolved > romanSolved):
-      return 'Max is the winner!!!';
-    case (maxSolved < romanSolved):
-      return 'Roman is the winner!!!';
-    default:
-      return 'Roman and Maxim are the winners!!!';
-  }
+console.log(
+  or(3, 3),
+  or(3, 4),
+  or(4, 3),
+  or(4, 4),
+);
+
+function and(a, b) {
+  return !a ? a : b;
 }
 
-console.log(getWinner('23', '24'))
+console.log(
+  and(3, 3),
+  and(3, 4),
+  and(4, 3),
+  and(4, 4),
+)
+
+console.log(
+  0 || (null && 13) || false,
+);
+
+const name = '' || 'No name';
+
+name && console.log(name);
