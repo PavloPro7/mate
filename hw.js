@@ -614,9 +614,7 @@
 
 // c
 
-function or(a, b) {
-  return (a) ? a : b;
-}
+const or = (a, b) => a ? a : b;
 
 console.log(
   or(3, 3),
@@ -625,9 +623,7 @@ console.log(
   or(4, 4),
 );
 
-function and(a, b) {
-  return !a ? a : b;
-}
+const and = (a, b) => !a ? a : b;
 
 console.log(
   and(3, 3),
@@ -643,3 +639,14 @@ console.log(
 const name = '' || 'No name';
 
 name && console.log(name);
+
+function canTheyBook(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
+
+  const withoutBabiesCapability = !babiesCount && (adultsCount + childrenCount <= 8);
+  const withBabiesCapability = (babiesCount > 0) && (babiesCount <= adultsCount) && (adultsCount + childrenCount + babiesCount <= 9);
+  const hasEnoughAdults = (childrenCount + babiesCount <= 2 * adultsCount) && adultsCount > 0;
+
+
+return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
+  // return (((!babiesCount && adultsCount + childrenCount <= 8) || (babiesCount > 0 && (adultsCount + childrenCount + babiesCount <= 9))) && childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0 && babiesCount <= adultsCount)
+}
