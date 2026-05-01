@@ -650,3 +650,23 @@ function canTheyBook(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
 return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
   // return (((!babiesCount && adultsCount + childrenCount <= 8) || (babiesCount > 0 && (adultsCount + childrenCount + babiesCount <= 9))) && childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0 && babiesCount <= adultsCount)
 }
+
+function recommendRoom(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
+
+  const guestsQuantity = adultsCount + childrenCount + babiesCount;
+
+  switch (true) {
+    case guestsQuantity <= 4:
+      return 'small room';
+    
+    case babiesCount && guestsQuantity === 5:
+      return 'small room + extra bed';
+
+    case guestsQuantity <= 8:
+      return 'big room';
+
+    default:
+      return 'big room + extra bed';
+
+  }
+}
