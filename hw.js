@@ -674,108 +674,125 @@
 
 ///         Objects         ///
 
-const firstName1 = 'Misha';
-const lastName1 = 'Markus';
-const age1 = 39;
+// const firstName1 = 'Misha';
+// const lastName1 = 'Markus';
+// const age1 = 39;
 
-const firstName2 = 'Masha';
-const lastName2 = 'Kushner';
-const age2 = 45;
+// const firstName2 = 'Masha';
+// const lastName2 = 'Kushner';
+// const age2 = 45;
 
-printInfo(firstName1, lastName1, age1);
-printInfo(firstName1, lastName2, age2);
+// printInfo(firstName1, lastName1, age1);
+// printInfo(firstName1, lastName2, age2);
 
-function printInfo(firstName, lastName, age) {
-  console.log(`User ${firstName} ${lastName} is ${age}`);
+// function printInfo(firstName, lastName, age) {
+//   console.log(`User ${firstName} ${lastName} is ${age}`);
+// }
+
+
+// const user1 = {
+//   firstName: 'Misha',
+//   lastName: 'Hrynko',
+//   age: 39,
+// };
+
+// const user2 = {
+//   firstName: 'Masha',
+//   lastName: 'Kushner',
+//   age: 45,
+// };
+
+// printUserInfo(user1);
+// printUserInfo(user2);
+
+// function printUserInfo(u) {
+//   console.log(`User ${u.firstName} ${u.lastName} is ${u.age}`);
+// }
+
+// //some Instance of shortened value
+
+// const age = 30;
+// const user = {
+//   // age: 25,
+//   // age: age,
+//   age,
+// };
+// console.log(user)  // {age: 30}
+
+// const namePrefix = 'first';
+// const surnamePrefix = 'last';
+// const user3 = {
+//   [namePrefix + 'Name']: 'Liana',
+//   [surnamePrefix + 'Name']: 'Nicklson',
+// };
+
+// user3[namePrefix + 'Name'] = 'Iliana'
+// console.log(`Hi ${user3[namePrefix + 'Name']} ${user3[surnamePrefix + 'Na' + 'me']}`);
+
+// delete user3[namePrefix + 'Name'];
+
+// console.log(user3);
+
+// /// Considering of some example ///
+
+// const user4 = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   age: 20,
+// };
+
+// //editing
+// user4.age = 21;
+// user4['firstName'] = 'Michael';
+
+// console.log(
+//   user4.firstName, //Michael
+//   user4.age, //21 
+// );
+
+// //adding
+// user4.isMarried = false;
+// user4['hasJob'] = true;
+
+// console.log(user4)
+// /*
+// {
+// age: 21
+// firstName: "Michael"
+// hasJob: true
+// isMarried: false
+// lastName: "Smith"
+// }
+// */
+
+// delete user4.age;
+// delete user4['hasJob'];
+
+// console.log(user4);
+
+
+
+
+// function addFullName(user) {
+//   user.fullName = `${user.firstName} ${user.lastName}`;
+// };
+// addFullName(user1);
+
+// console.log(user1);
+
+
+const robots = [
+  { coreVersion: 9 },
+  { coreVersion: 13 },
+  { coreVersion: 16 },
+  { coreVersion: 9 },
+  { coreVersion: 14 },
+];
+
+function getOutdated(robots, newVersion) {
+  let outdated = [];
+  for (let i = 0; i < robots.length; i++) {
+    robots[i].coreVersion < newVersion && outdated.push(i);
+  }
+  return outdated;
 }
-
-
-const user1 = {
-  firstName: 'Misha',
-  lastName: 'Hrynko',
-  age: 39,
-};
-
-const user2 = {
-  firstName: 'Masha',
-  lastName: 'Kushner',
-  age: 45,
-};
-
-printUserInfo(user1);
-printUserInfo(user2);
-
-function printUserInfo(u) {
-  console.log(`User ${u.firstName} ${u.lastName} is ${u.age}`);
-}
-
-//some Instance of shortened value
-
-const age = 30;
-const user = {
-  // age: 25,
-  // age: age,
-  age,
-};
-console.log(user)  // {age: 30}
-
-const namePrefix = 'first';
-const surnamePrefix = 'last';
-const user3 = {
-  [namePrefix + 'Name']: 'Liana',
-  [surnamePrefix + 'Name']: 'Nicklson',
-};
-
-user3[namePrefix + 'Name'] = 'Iliana'
-console.log(`Hi ${user3[namePrefix + 'Name']} ${user3[surnamePrefix + 'Na' + 'me']}`);
-
-delete user3[namePrefix + 'Name'];
-
-console.log(user3);
-
-/// Considering of some example ///
-
-const user4 = {
-  firstName: 'John',
-  lastName: 'Smith',
-  age: 20,
-};
-
-//editing
-user4.age = 21;
-user4['firstName'] = 'Michael';
-
-console.log(
-  user4.firstName, //Michael
-  user4.age, //21 
-);
-
-//adding
-user4.isMarried = false;
-user4['hasJob'] = true;
-
-console.log(user4)
-/*
-{
-age: 21
-firstName: "Michael"
-hasJob: true
-isMarried: false
-lastName: "Smith"
-}
-*/
-
-delete user4.age;
-delete user4['hasJob'];
-
-console.log(user4);
-
-
-
-
-function addFullName(user) {
-  user.fullName = `${user.firstName} ${user.lastName}`;
-};
-addFullName(user1);
-
-console.log(user1)
