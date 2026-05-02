@@ -781,18 +781,40 @@
 // console.log(user1);
 
 
-const robots = [
-  { coreVersion: 9 },
-  { coreVersion: 13 },
-  { coreVersion: 16 },
-  { coreVersion: 9 },
-  { coreVersion: 14 },
-];
+// const robots = [
+//   { coreVersion: 9 },
+//   { coreVersion: 13 },
+//   { coreVersion: 16 },
+//   { coreVersion: 9 },
+//   { coreVersion: 14 },
+// ];
 
-function getOutdated(robots, newVersion) {
-  let outdated = [];
-  for (let i = 0; i < robots.length; i++) {
-    robots[i].coreVersion < newVersion && outdated.push(i);
-  }
-  return outdated;
+// function getOutdated(robots, newVersion) {
+//   let outdated = [];
+//   for (let i = 0; i < robots.length; i++) {
+//     robots[i].coreVersion < newVersion && outdated.push(i);
+//   }
+//   return outdated;
+// }
+
+const user = {
+  firstName: 'Misha',
+  lastName: 'Hrynko',
+  age: 39,
+  isMarried: undefined,
+};
+
+const key = 'toString';
+
+// if (user[key] !== undefined) {
+//   console.log('Property exists');
+// }
+
+if (key in user) {
+  console.log('Property exists'); //Property exists
 }
+
+if (Object.hasOwn(user, key)) {
+  console.log('Property exists'); // nothing, coz it checks your own keys.
+}
+
