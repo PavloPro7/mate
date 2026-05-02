@@ -612,61 +612,99 @@
 //   )
 // }
 
-// c
+///       AND    //    OR      ///
 
-const or = (a, b) => a ? a : b;
+// const or = (a, b) => a ? a : b;
 
-console.log(
-  or(3, 3),
-  or(3, 4),
-  or(4, 3),
-  or(4, 4),
-);
+// console.log(
+//   or(3, 3),
+//   or(3, 4),
+//   or(4, 3),
+//   or(4, 4),
+// );
 
-const and = (a, b) => !a ? a : b;
+// const and = (a, b) => !a ? a : b;
 
-console.log(
-  and(3, 3),
-  and(3, 4),
-  and(4, 3),
-  and(4, 4),
-)
+// console.log(
+//   and(3, 3),
+//   and(3, 4),
+//   and(4, 3),
+//   and(4, 4),
+// )
 
-console.log(
-  0 || (null && 13) || false,
-);
+// console.log(
+//   0 || (null && 13) || false,
+// );
 
-const name = '' || 'No name';
+// const name = '' || 'No name';
 
-name && console.log(name);
+// name && console.log(name);
 
-function canTheyBook(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
+// function canTheyBook(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
 
-  const withoutBabiesCapability = !babiesCount && (adultsCount + childrenCount <= 8);
-  const withBabiesCapability = (babiesCount > 0) && (babiesCount <= adultsCount) && (adultsCount + childrenCount + babiesCount <= 9);
-  const hasEnoughAdults = (childrenCount + babiesCount <= 2 * adultsCount) && adultsCount > 0;
+//   const withoutBabiesCapability = !babiesCount && (adultsCount + childrenCount <= 8);
+//   const withBabiesCapability = (babiesCount > 0) && (babiesCount <= adultsCount) && (adultsCount + childrenCount + babiesCount <= 9);
+//   const hasEnoughAdults = (childrenCount + babiesCount <= 2 * adultsCount) && adultsCount > 0;
 
 
-return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
-  // return (((!babiesCount && adultsCount + childrenCount <= 8) || (babiesCount > 0 && (adultsCount + childrenCount + babiesCount <= 9))) && childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0 && babiesCount <= adultsCount)
+// return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
+//   // return (((!babiesCount && adultsCount + childrenCount <= 8) || (babiesCount > 0 && (adultsCount + childrenCount + babiesCount <= 9))) && childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0 && babiesCount <= adultsCount)
+// }
+
+// function recommendRoom(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
+
+//   const guestsQuantity = adultsCount + childrenCount + babiesCount;
+
+//   switch (true) {
+//     case guestsQuantity <= 4:
+//       return 'small room';
+    
+//     case babiesCount && guestsQuantity === 5:
+//       return 'small room + extra bed';
+
+//     case guestsQuantity <= 8:
+//       return 'big room';
+
+//     default:
+//       return 'big room + extra bed';
+
+//   }
+// }
+
+
+///         Objects         ///
+
+const firstName1 = 'Misha';
+const lastName1 = 'Markus';
+const age1 = 39;
+
+const firstName2 = 'Masha';
+const lastName2 = 'Kushner';
+const age2 = 45;
+
+printInfo(firstName1, lastName1, age1);
+printInfo(firstName1, lastName2, age2);
+
+function printInfo(firstName, lastName, age) {
+  console.log(`User ${firstName} ${lastName} is ${age}`);
 }
 
-function recommendRoom(adultsCount = 0, childrenCount = 0, babiesCount = 0) {
 
-  const guestsQuantity = adultsCount + childrenCount + babiesCount;
+const user1 = {
+  firstName: 'Misha',
+  lastName: 'Hrynko',
+  age: 39,
+};
 
-  switch (true) {
-    case guestsQuantity <= 4:
-      return 'small room';
-    
-    case babiesCount && guestsQuantity === 5:
-      return 'small room + extra bed';
+const user2 = {
+  firstName: 'Masha',
+  lastName: 'Kushner',
+  age: 45,
+};
 
-    case guestsQuantity <= 8:
-      return 'big room';
+printUserInfo(user1);
+printUserInfo(user2);
 
-    default:
-      return 'big room + extra bed';
-
-  }
+function printUserInfo(u) {
+  console.log(`User ${u.firstName} ${u.lastName} is ${u.age}`);
 }
