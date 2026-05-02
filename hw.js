@@ -708,3 +708,74 @@ printUserInfo(user2);
 function printUserInfo(u) {
   console.log(`User ${u.firstName} ${u.lastName} is ${u.age}`);
 }
+
+//some Instance of shortened value
+
+const age = 30;
+const user = {
+  // age: 25,
+  // age: age,
+  age,
+};
+console.log(user)  // {age: 30}
+
+const namePrefix = 'first';
+const surnamePrefix = 'last';
+const user3 = {
+  [namePrefix + 'Name']: 'Liana',
+  [surnamePrefix + 'Name']: 'Nicklson',
+};
+
+user3[namePrefix + 'Name'] = 'Iliana'
+console.log(`Hi ${user3[namePrefix + 'Name']} ${user3[surnamePrefix + 'Na' + 'me']}`);
+
+delete user3[namePrefix + 'Name'];
+
+console.log(user3);
+
+/// Considering of some example ///
+
+const user4 = {
+  firstName: 'John',
+  lastName: 'Smith',
+  age: 20,
+};
+
+//editing
+user4.age = 21;
+user4['firstName'] = 'Michael';
+
+console.log(
+  user4.firstName, //Michael
+  user4.age, //21 
+);
+
+//adding
+user4.isMarried = false;
+user4['hasJob'] = true;
+
+console.log(user4)
+/*
+{
+age: 21
+firstName: "Michael"
+hasJob: true
+isMarried: false
+lastName: "Smith"
+}
+*/
+
+delete user4.age;
+delete user4['hasJob'];
+
+console.log(user4);
+
+
+
+
+function addFullName(user) {
+  user.fullName = `${user.firstName} ${user.lastName}`;
+};
+addFullName(user1);
+
+console.log(user1)
