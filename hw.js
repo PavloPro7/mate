@@ -797,28 +797,80 @@
 //   return outdated;
 // }
 
+// const user = {
+//   firstName: 'Misha',
+//   lastName: 'Hrynko',
+//   age: 39,
+//   isMarried: undefined,
+// };
+
+// const key = 'toString';
+
+// // if (user[key] !== undefined) {
+// //   console.log('Property exists');
+// // }
+
+// if (key in user) {
+//   console.log('Property exists'); //Property exists
+// }
+
+// if (Object.hasOwn(user, key)) {
+//   console.log('Property exists'); // nothing, coz it checks your own keys.
+// }
+
+
+// const someValue = 'Paul Walker';
+// const parts = someValue.split(' ');
+// console.log(parts);
+
 const user = {
   firstName: 'Misha',
   lastName: 'Hrynko',
   age: 39,
-  isMarried: undefined,
+  isMarried: true,
 };
 
-const key = 'toString';
+user.x = 1;
 
-// if (user[key] !== undefined) {
-//   console.log('Property exists');
-// }
 
-if (key in user) {
-  console.log('Property exists'); //Property exists
+for (const key in user) {
+  console.log(key, user[key]);
 }
 
-if (Object.hasOwn(user, key)) {
-  console.log('Property exists'); // nothing, coz it checks your own keys.
+console.log(Object.keys(user));
+
+for (const key of Object.keys(user)) {
+  console.log(key, user[key]);
 }
 
+for (const value of Object.values(user)) {
+  console.log(value);
+}
 
-const someValue = 'Paul Walker';
-const parts = someValue.split(' ');
-console.log(parts)
+for (const entry of Object.entries(user)) {
+  console.log(entry[0], entry[1]);
+}
+console.log(Object.entries(user));
+function countBoxes(boxes) {
+  
+  let check = {};
+  for (let box of boxes) {
+    check[box] = 0;
+  }
+  let i = 0;
+  for (const key of Object.keys(check)) {
+    
+    for (let box of boxes) {
+      if (box === key) {
+        check[key]++;
+      }
+      
+    }
+
+
+
+  }
+
+return check;
+}
+console.log(countBoxes('basdffd'));
