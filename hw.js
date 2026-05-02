@@ -818,3 +818,7 @@ if (Object.hasOwn(user, key)) {
   console.log('Property exists'); // nothing, coz it checks your own keys.
 }
 
+
+const someValue = 'Paul Walker';
+const parts = someValue.split(' ');
+console.log(parts)
