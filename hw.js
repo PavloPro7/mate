@@ -9,13 +9,13 @@
 //         }
 //     }
 //     return direct === indirect;
-// } 
+// }
 
 // console.log(isWerewolf('level'));
 // function toAllTypes(num) {
-//     return `binary: ${num.toString(2)}, 
+//     return `binary: ${num.toString(2)},
 // octal: ${num.toString(8)},
-// decimal: ${num.toString(10)}, 
+// decimal: ${num.toString(10)},
 // hexadecimal: ${num.toString(16)}`
 // }
 
@@ -49,7 +49,7 @@
 //   for (let stat of statistic) {
 //     if (stat == 1) {
 //       succeed++;
-//     } 
+//     }
 //   }
 //   return (sum !== 0) ? 100 * succeed / sum : 0;
 // }
@@ -423,10 +423,10 @@
 // let digit = 0;
 
 // console.log(
-//   string.repeat(4), '\n', 
+//   string.repeat(4), '\n',
 //   string.padStart(20), '\n', //              4 30 8
 //   string.padEnd(20, '**** '), '\n',
-//   string.trim(), '\n', //trimStart, trimEnd 
+//   string.trim(), '\n', //trimStart, trimEnd
 //   string.replaceAll(' ', ''), '\n' //.replace(' ', '') - substitute only one
 
 // );
@@ -747,7 +747,7 @@
 
 // console.log(
 //   user4.firstName, //Michael
-//   user4.age, //21 
+//   user4.age, //21
 // );
 
 // //adding
@@ -823,54 +823,102 @@
 // const parts = someValue.split(' ');
 // console.log(parts);
 
-const user = {
-  firstName: 'Misha',
-  lastName: 'Hrynko',
-  age: 39,
-  isMarried: true,
-};
+// const user = {
+//   firstName: 'Misha',
+//   lastName: 'Hrynko',
+//   age: 39,
+//   isMarried: true,
+// };
 
-user.x = 1;
+// user.x = 1;
 
 
-for (const key in user) {
-  console.log(key, user[key]);
-}
+// for (const key in user) {
+//   console.log(key, user[key]);
+// }
 
-console.log(Object.keys(user));
+// console.log(Object.keys(user));
 
-for (const key of Object.keys(user)) {
-  console.log(key, user[key]);
-}
+// for (const key of Object.keys(user)) {
+//   console.log(key, user[key]);
+// }
 
-for (const value of Object.values(user)) {
-  console.log(value);
-}
+// for (const value of Object.values(user)) {
+//   console.log(value);
+// }
 
-for (const entry of Object.entries(user)) {
-  console.log(entry[0], entry[1]);
-}
-console.log(Object.entries(user));
-function countBoxes(boxes) {
+// for (const entry of Object.entries(user)) {
+//   console.log(entry[0], entry[1]);
+// }
+// console.log(Object.entries(user));
+// function countBoxes(boxes) {
   
-  let check = {};
-  for (let box of boxes) {
-    check[box] = 0;
-  }
-  let i = 0;
-  for (const key of Object.keys(check)) {
+//   let check = {};
+//   for (let box of boxes) {
+//     check[box] = 0;
+//   }
+//   let i = 0;
+//   for (const key of Object.keys(check)) {
     
-    for (let box of boxes) {
-      if (box === key) {
-        check[key]++;
-      }
+//     for (let box of boxes) {
+//       if (box === key) {
+//         check[key]++;
+//       }
       
+//     }
+
+
+
+//   }
+
+// return check;
+// }
+// console.log(countBoxes('basdffd'));
+
+const compareRobots = (robot1, robot2) => {
+  results = [];
+  for (const key of Object.keys(robot1)) {
+    if (key === 'serialNo') continue;
+    if (robot1[key] === robot2[key]) {
+      results.push(true);
+    } else {
+      results.push(false);
     }
-
-
-
+  };
+  for (const key of Object.keys(robot2)) {
+    if (key === 'serialNo') continue;
+    if (robot2[key] === robot1[key]) {
+      results.push(true);
+    } else {
+      results.push(false);
+    }
   }
-
-return check;
+  let final;
+  for (let result of results) {
+    if (result) { final = true;
+    } else {
+      final = false;
+    }
+    
+  }
+  return final;
 }
-console.log(countBoxes('basdffd'));
+
+const charlie = { serialNo: 1, chipVer: 12 };
+
+const lordy = { serialNo: 2, chipVer: 12 };
+compareRobots(charlie, lordy); // true
+
+const paul = { serialNo: 3, chipVer: 15 };
+compareRobots(paul, charlie); // false
+
+const mike = { serialNo: 4, chipVer: 12, wheels: 1 };
+compareRobots(mike, charlie); // false
+
+const max = { serialNo: 5, engineVer: 12 };
+compareRobots(max, charlie); // false
+
+const steve = { serialNo: 6 };
+compareRobots(steve, charlie); // false
+console.log(compareRobots(steve, charlie));
+console.log(Object.keys(charlie))
