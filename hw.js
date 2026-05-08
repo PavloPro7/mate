@@ -875,50 +875,80 @@
 // }
 // console.log(countBoxes('basdffd'));
 
-const compareRobots = (robot1, robot2) => {
-  results = [];
-  for (const key of Object.keys(robot1)) {
-    if (key === 'serialNo') continue;
-    if (robot1[key] === robot2[key]) {
-      results.push(true);
-    } else {
-      results.push(false);
-    }
-  };
-  for (const key of Object.keys(robot2)) {
-    if (key === 'serialNo') continue;
-    if (robot2[key] === robot1[key]) {
-      results.push(true);
-    } else {
-      results.push(false);
-    }
-  }
-  let final;
-  for (let result of results) {
-    if (result) { final = true;
-    } else {
-      final = false;
-    }
+// const compareRobots = (robot1, robot2) => {
+//   results = [];
+//   for (const key of Object.keys(robot1)) {
+//     if (key === 'serialNo') continue;
+//     if (robot1[key] === robot2[key]) {
+//       results.push(true);
+//     } else {
+//       results.push(false);
+//     }
+//   };
+//   for (const key of Object.keys(robot2)) {
+//     if (key === 'serialNo') continue;
+//     if (robot2[key] === robot1[key]) {
+//       results.push(true);
+//     } else {
+//       results.push(false);
+//     }
+//   }
+//   let final;
+//   for (let result of results) {
+//     if (result) { final = true;
+//     } else {
+//       final = false;
+//     }
     
+//   }
+//   return final;
+// }
+
+// const charlie = { serialNo: 1, chipVer: 12 };
+
+// const lordy = { serialNo: 2, chipVer: 12 };
+// compareRobots(charlie, lordy); // true
+
+// const paul = { serialNo: 3, chipVer: 15 };
+// compareRobots(paul, charlie); // false
+
+// const mike = { serialNo: 4, chipVer: 12, wheels: 1 };
+// compareRobots(mike, charlie); // false
+
+// const max = { serialNo: 5, engineVer: 12 };
+// compareRobots(max, charlie); // false
+
+// const steve = { serialNo: 6 };
+// compareRobots(steve, charlie); // false
+// console.log(compareRobots(steve, charlie));
+// console.log(Object.keys(charlie));
+
+// console.log(charlie);
+
+function getTriathlonDistance(distance) {
+  let triathlon = {}
+  const entireWay = 226.31;
+  let kmLeft = `${(entireWay - distance).toFixed(2)} to go!`;
+  if (distance === 0) return 'Starting Line... Good Luck!';
+
+  switch (true) {
+    case (distance === 0):
+      return 'Starting Line... Good Luck!';
+
+    case (distance < 3.86):
+      triathlon.swim = kmLeft;
+      return triathlon;
+    
+    case (distance < 184.11):
+      triathlon.bike = kmLeft;
+      return triathlon;
+    
+    case (distance < entireWay):
+      triathlon.run = kmLeft;
+      return triathlon;
+    default:
+      return 'You\'re done! Stop running!';
   }
-  return final;
+
 }
-
-const charlie = { serialNo: 1, chipVer: 12 };
-
-const lordy = { serialNo: 2, chipVer: 12 };
-compareRobots(charlie, lordy); // true
-
-const paul = { serialNo: 3, chipVer: 15 };
-compareRobots(paul, charlie); // false
-
-const mike = { serialNo: 4, chipVer: 12, wheels: 1 };
-compareRobots(mike, charlie); // false
-
-const max = { serialNo: 5, engineVer: 12 };
-compareRobots(max, charlie); // false
-
-const steve = { serialNo: 6 };
-compareRobots(steve, charlie); // false
-console.log(compareRobots(steve, charlie));
-console.log(Object.keys(charlie))
+console.log(getTriathlonDistance(226.3))
