@@ -925,30 +925,48 @@
 
 // console.log(charlie);
 
-function getTriathlonDistance(distance) {
-  let triathlon = {}
-  const entireWay = 226.31;
-  let kmLeft = `${(entireWay - distance).toFixed(2)} to go!`;
-  if (distance === 0) return 'Starting Line... Good Luck!';
+// function getTriathlonDistance(distance) {
+//   let triathlon = {}
+//   const entireWay = 226.31;
+//   let kmLeft = `${(entireWay - distance).toFixed(2)} to go!`;
+//   if (distance === 0) return 'Starting Line... Good Luck!';
 
-  switch (true) {
-    case (distance === 0):
-      return 'Starting Line... Good Luck!';
+//   switch (true) {
+//     case (distance === 0):
+//       return 'Starting Line... Good Luck!';
 
-    case (distance < 3.86):
-      triathlon.swim = kmLeft;
-      return triathlon;
+//     case (distance < 3.86):
+//       triathlon.swim = kmLeft;
+//       return triathlon;
     
-    case (distance < 184.11):
-      triathlon.bike = kmLeft;
-      return triathlon;
+//     case (distance < 184.11):
+//       triathlon.bike = kmLeft;
+//       return triathlon;
     
-    case (distance < entireWay):
-      triathlon.run = kmLeft;
-      return triathlon;
-    default:
-      return 'You\'re done! Stop running!';
-  }
+//     case (distance < entireWay):
+//       triathlon.run = kmLeft;
+//       return triathlon;
+//     default:
+//       return 'You\'re done! Stop running!';
+//   }
 
+// }
+// console.log(getTriathlonDistance(226.3))
+
+
+console.log(Object.is(4, NaN));
+console.log(isFinite(),)
+
+const randomNumber = (min, max) => {
+  const result = (max - min) * Math.random() + min;
+  return Math.trunc(result);
 }
-console.log(getTriathlonDistance(226.3))
+
+console.log(
+  randomNumber(3, 5),
+  randomNumber(4, 5),
+  randomNumber(5, 9),
+  randomNumber(1, 8),
+  randomNumber(2, 6),
+)
+
