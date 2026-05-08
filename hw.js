@@ -954,19 +954,27 @@
 // console.log(getTriathlonDistance(226.3))
 
 
-console.log(Object.is(4, NaN));
-console.log(isFinite(),)
+// console.log(Object.is(4, NaN));
+// console.log(isFinite(),)
 
-const randomNumber = (min, max) => {
-  const result = (max - min) * Math.random() + min;
-  return Math.trunc(result);
-}
+// const randomNumber = (min, max) => {
+//   const result = (max - min) * Math.random() + min;
+//   return Math.trunc(result);
+// }
 
+// console.log(
+//   randomNumber(3, 5),
+//   randomNumber(4, 5),
+//   randomNumber(5, 9),
+//   randomNumber(1, 8),
+//   randomNumber(2, 6),
+// );
+let word = 'word';
 console.log(
-  randomNumber(3, 5),
-  randomNumber(4, 5),
-  randomNumber(5, 9),
-  randomNumber(1, 8),
-  randomNumber(2, 6),
-)
+  word.includes('o', 0),
+  word.slice(),
+  word.indexOf('ke')
+);
 
+const funcCheck = (param) => param;
+console.log(funcCheck())
