@@ -969,12 +969,23 @@
 //   randomNumber(1, 8),
 //   randomNumber(2, 6),
 // );
-let word = 'word';
-console.log(
-  word.includes('o', 0),
-  word.slice(),
-  word.indexOf('ke')
-);
+// let word = 'word';
+// console.log(
+//   word.includes('o', 0),
+//   word.slice(),
+//   word.indexOf('ke')
+// );
 
-const funcCheck = (param) => param;
-console.log(funcCheck())
+// const funcCheck = (param) => param;
+// console.log(funcCheck())
+
+function colorStones(stones) {
+  // write code here
+  let count = 0;
+  for (let i = 0; i < stones.length; i++) {
+    if (stones[i - 1] === stones[i]) {
+      count++;
+    }
+  }
+  return count;
+}
