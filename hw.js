@@ -979,13 +979,31 @@
 // const funcCheck = (param) => param;
 // console.log(funcCheck())
 
-function colorStones(stones) {
+// function colorStones(stones) {
+//   // write code here
+//   let count = 0;
+//   for (let i = 0; i < stones.length; i++) {
+//     if (stones[i - 1] === stones[i]) {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+function countNextSmaller(numbers) {
   // write code here
-  let count = 0;
-  for (let i = 0; i < stones.length; i++) {
-    if (stones[i - 1] === stones[i]) {
+  let counts = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    let count = 0;
+    for (let n = i; n < numbers.length; n++) {
+      if (numbers[i] > numbers[n]) {
       count++;
+      }
     }
+    counts.push(count);
   }
-  return count;
+  return counts;
 }
+
+console.log(countNextSmaller([5, 4, 3, 2, 1]));
