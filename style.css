@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  border: 3px solid red;
+  gap: 20px;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.box {
+  height: auto;
+  width: auto;
+  border: 3px solid blue;
+  background-color: yellow;
+}
+
+.box-2 {
+  order: 1;
+  padding-top: 20px;
+  align-self: flex-start;
+}
+.box-1 {
+  order: 2;
+  padding-bottom: 15px;
+  align-self: flex-end;
+}
