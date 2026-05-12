@@ -990,20 +990,30 @@
 //   return count;
 // }
 
-function countNextSmaller(numbers) {
-  // write code here
-  let counts = [];
+// function countNextSmaller(numbers) {
+//   // write code here
+//   let counts = [];
 
-  for (let i = 0; i < numbers.length; i++) {
-    let count = 0;
-    for (let n = i; n < numbers.length; n++) {
-      if (numbers[i] > numbers[n]) {
-      count++;
-      }
-    }
-    counts.push(count);
-  }
-  return counts;
+//   for (let i = 0; i < numbers.length; i++) {
+//     let count = 0;
+//     for (let n = i; n < numbers.length; n++) {
+//       if (numbers[i] > numbers[n]) {
+//       count++;
+//       }
+//     }
+//     counts.push(count);
+//   }
+//   return counts;
+// }
+
+// console.log(countNextSmaller([5, 4, 3, 2, 1]));
+
+
+function getProductId(url) {
+  let infoWithoutUrl = url.split('-p-').at(-1);
+  const choppedPart = 14;
+  let id = infoWithoutUrl.slice(0, -choppedPart);
+  return id;
 }
 
-console.log(countNextSmaller([5, 4, 3, 2, 1]));
+console.log('http://www.exampleshop.com/letter-p-book-stand-p-192837-11112011.html'.lastIndexOf('-p-'));
