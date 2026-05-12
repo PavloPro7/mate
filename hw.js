@@ -1009,11 +1009,33 @@
 // console.log(countNextSmaller([5, 4, 3, 2, 1]));
 
 
-function getProductId(url) {
-  let infoWithoutUrl = url.split('-p-').at(-1);
-  const choppedPart = 14;
-  let id = infoWithoutUrl.slice(0, -choppedPart);
-  return id;
+// function getProductId(url) {
+//   let infoWithoutUrl = url.split('-p-').at(-1);
+//   const choppedPart = 14;
+//   let id = infoWithoutUrl.slice(0, -choppedPart);
+//   return id;
+// }
+
+// console.log('http://www.exampleshop.com/letter-p-book-stand-p-192837-11112011.html'.lastIndexOf('-p-'));
+
+function getLeaders(numbers) {
+  let result = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    let sum = 0;
+
+    for (let j = i; j < numbers.length; j++) {
+      if (j === i) continue;
+
+      sum += numbers[j];
+    }
+
+    if (numbers[i] > sum) {
+      result.push(numbers[i]);
+    }
+  }
+  
+  return result;
 }
 
-console.log('http://www.exampleshop.com/letter-p-book-stand-p-192837-11112011.html'.lastIndexOf('-p-'));
+console.log(getLeaders([26, 5, 3, 4, 9, 3]))
