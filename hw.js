@@ -27,7 +27,6 @@
 //   console.log("You have a " + item);
 // }
 
-
 // // 1. Start: let i = 0
 // // 2. Condition: run as long as i < 5
 // // 3. Step: increase i by 1 after each loop (i++)
@@ -68,11 +67,9 @@
 
 // console.log(makeDecision(-1, -5, 1000));
 
-
 // let num = 3.53796;
 // console.log(+num.toFixed(2));
 // console.log(num.toPrecision(4));
-
 
 // console.log(Math.round(num * 100) / 100);\
 
@@ -143,8 +140,6 @@
 
 //console.log(Number(Math.random().toFixed(2)))
 
-
-
 // function getRandomNumber(min, max) {
 //   const result = [];
 //   for (let i = 0; i < 10; i++) {
@@ -153,7 +148,6 @@
 //   return result;
 // }
 // console.log(getRandomNumber(5, 9))
-
 
 // const n = 7;
 // let sum = 0;
@@ -179,7 +173,6 @@
 //   console.log(sum);
 // }
 
-
 // function calculateProfit(amount, percent, period) {
 //   let expectedReturn = amount;
 //   for (let i = 0; i < period; i++) {
@@ -187,7 +180,6 @@
 //   }
 //   return +(expectedReturn - amount).toFixed(2);
 // }
-
 
 // console.log(calculateProfit(1000, 5.5, 7))
 
@@ -207,8 +199,6 @@
 // }
 // console.log(splitString('auto '));
 
-
-
 // function splitString(str) {
 
 //     if (str.length % 2 !== 0) {
@@ -222,7 +212,6 @@
 //   return evenStrings;
 // }
 // console.log(splitString('work '))
-
 
 // let i = 0;
 // let j = 1;
@@ -310,7 +299,6 @@
 // console.log(title.charAt(title.length - 1)); //g
 // console.log(title)
 
-
 // let str = '';
 // for (let i = 1; i < 256; i++) {
 //   str += String.fromCodePoint(i);
@@ -374,9 +362,9 @@
 //     if (numberString[i - 1] <= numberString[i] || numberString[i] === undefined) {
 //       numberCheck += numberString[i - 1]
 //     }
-    
+
 //   }
-  
+
 //     if (numberString == numberCheck) {
 //       return true;
 //     }
@@ -384,8 +372,6 @@
 // }
 
 // console.log(isTidy(124444456));
-
-
 
 // function isJumping(n) {
 
@@ -444,7 +430,7 @@
 //       abbr += words[i].toUpperCase();
 //     }
 //   }
-  
+
 //   return abbr;
 // }
 
@@ -470,7 +456,7 @@
 //   for (let i = 0; i < wordUpperCase.length; i++) {
 //     result.push(wordUpperCase);
 //     wordUpperCase = wordUpperCase.slice(1) + wordUpperCase.slice(0, 1);
-    
+
 //   }
 //   return result;
 // }
@@ -487,7 +473,6 @@
 //   return result;
 // }
 
-
 // console.log(scrollingText('fork'));
 
 // const string = 'banana';
@@ -496,17 +481,12 @@
 //   console.log(ch);
 // }
 
-
-
-
-
 // //////              Functions               ///////
 
 // function sum(a, b = 2) {
 //   console.log(a, b);
 // }
 // sum(2);
-
 
 // //first way of asignment function to variable.
 // let operation = function(a = 0, b = 0, ...args) {
@@ -543,12 +523,7 @@
 // }
 // console.log(getString())
 
-
-
 ///         Switch Case           ///
-
-
-
 
 // if (count === 1) {
 //   console.log('One');
@@ -588,7 +563,7 @@
 //   switch (true) {
 //     case count < 2:
 //       return 'One';
-    
+
 //     default:
 //       return 'Many';
 //   }
@@ -597,7 +572,6 @@
 // console.log(getName(1))
 
 // console.log(5 === 5 > 4)
-
 
 ///       Type Conversion      ///
 
@@ -646,7 +620,6 @@
 //   const withBabiesCapability = (babiesCount > 0) && (babiesCount <= adultsCount) && (adultsCount + childrenCount + babiesCount <= 9);
 //   const hasEnoughAdults = (childrenCount + babiesCount <= 2 * adultsCount) && adultsCount > 0;
 
-
 // return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
 //   // return (((!babiesCount && adultsCount + childrenCount <= 8) || (babiesCount > 0 && (adultsCount + childrenCount + babiesCount <= 9))) && childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0 && babiesCount <= adultsCount)
 // }
@@ -658,7 +631,7 @@
 //   switch (true) {
 //     case guestsQuantity <= 4:
 //       return 'small room';
-    
+
 //     case babiesCount && guestsQuantity === 5:
 //       return 'small room + extra bed';
 
@@ -670,7 +643,6 @@
 
 //   }
 // }
-
 
 ///         Objects         ///
 
@@ -688,7 +660,6 @@
 // function printInfo(firstName, lastName, age) {
 //   console.log(`User ${firstName} ${lastName} is ${age}`);
 // }
-
 
 // const user1 = {
 //   firstName: 'Misha',
@@ -770,16 +741,12 @@
 
 // console.log(user4);
 
-
-
-
 // function addFullName(user) {
 //   user.fullName = `${user.firstName} ${user.lastName}`;
 // };
 // addFullName(user1);
 
 // console.log(user1);
-
 
 // const robots = [
 //   { coreVersion: 9 },
@@ -818,7 +785,6 @@
 //   console.log('Property exists'); // nothing, coz it checks your own keys.
 // }
 
-
 // const someValue = 'Paul Walker';
 // const parts = someValue.split(' ');
 // console.log(parts);
@@ -831,7 +797,6 @@
 // };
 
 // user.x = 1;
-
 
 // for (const key in user) {
 //   console.log(key, user[key]);
@@ -852,22 +817,20 @@
 // }
 // console.log(Object.entries(user));
 // function countBoxes(boxes) {
-  
+
 //   let check = {};
 //   for (let box of boxes) {
 //     check[box] = 0;
 //   }
 //   let i = 0;
 //   for (const key of Object.keys(check)) {
-    
+
 //     for (let box of boxes) {
 //       if (box === key) {
 //         check[key]++;
 //       }
-      
+
 //     }
-
-
 
 //   }
 
@@ -899,7 +862,7 @@
 //     } else {
 //       final = false;
 //     }
-    
+
 //   }
 //   return final;
 // }
@@ -938,11 +901,11 @@
 //     case (distance < 3.86):
 //       triathlon.swim = kmLeft;
 //       return triathlon;
-    
+
 //     case (distance < 184.11):
 //       triathlon.bike = kmLeft;
 //       return triathlon;
-    
+
 //     case (distance < entireWay):
 //       triathlon.run = kmLeft;
 //       return triathlon;
@@ -952,7 +915,6 @@
 
 // }
 // console.log(getTriathlonDistance(226.3))
-
 
 // console.log(Object.is(4, NaN));
 // console.log(isFinite(),)
@@ -1008,7 +970,6 @@
 
 // console.log(countNextSmaller([5, 4, 3, 2, 1]));
 
-
 // function getProductId(url) {
 //   let infoWithoutUrl = url.split('-p-').at(-1);
 //   const choppedPart = 14;
@@ -1018,24 +979,42 @@
 
 // console.log('http://www.exampleshop.com/letter-p-book-stand-p-192837-11112011.html'.lastIndexOf('-p-'));
 
-function getLeaders(numbers) {
+// function getLeaders(numbers) {
+//   let result = [];
+
+//   for (let i = 0; i < numbers.length; i++) {
+//     let sum = 0;
+
+//     for (let j = i; j < numbers.length; j++) {
+//       if (j === i) continue;
+
+//       sum += numbers[j];
+//     }
+
+//     if (numbers[i] > sum) {
+//       result.push(numbers[i]);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(getLeaders([26, 5, 3, 4, 9, 3]))
+
+function getArrayProduct(numbers) {
   let result = [];
 
   for (let i = 0; i < numbers.length; i++) {
-    let sum = 0;
+    let product = 1;
 
-    for (let j = i; j < numbers.length; j++) {
+    for (let j = 0; j < numbers.length; j++) {
       if (j === i) continue;
 
-      sum += numbers[j];
+      product *= numbers[j];
     }
 
-    if (numbers[i] > sum) {
-      result.push(numbers[i]);
-    }
+    result.push(product);
   }
-  
+
   return result;
 }
-
-console.log(getLeaders([26, 5, 3, 4, 9, 3]))
