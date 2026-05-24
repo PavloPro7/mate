@@ -1001,20 +1001,41 @@
 
 // console.log(getLeaders([26, 5, 3, 4, 9, 3]))
 
-function getArrayProduct(numbers) {
+// function getArrayProduct(numbers) {
+//   let result = [];
+
+//   for (let i = 0; i < numbers.length; i++) {
+//     let product = 1;
+
+//     for (let j = 0; j < numbers.length; j++) {
+//       if (j === i) continue;
+
+//       product *= numbers[j];
+//     }
+
+//     result.push(product);
+//   }
+
+//   return result;
+// }
+
+function getRowWeights(people) {
   let result = [];
-
-  for (let i = 0; i < numbers.length; i++) {
-    let product = 1;
-
-    for (let j = 0; j < numbers.length; j++) {
-      if (j === i) continue;
-
-      product *= numbers[j];
+  let oddAmount = 0;
+  let evenAmount = 0;
+  for (let i = 0; i < people.length; i++) {
+    if (i === 1 || i % 2 === 1) {
+      evenAmount += people[i];
     }
 
-    result.push(product);
+    if (i % 2 === 0) {
+      oddAmount += people[i];
+    }
   }
+  result.push(oddAmount);
+  result.push(evenAmount);
 
   return result;
 }
+
+console.log(getRowWeights([10, 5, 15, 5]));
