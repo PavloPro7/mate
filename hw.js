@@ -1019,23 +1019,38 @@
 //   return result;
 // }
 
-function getRowWeights(people) {
-  let result = [];
-  let oddAmount = 0;
-  let evenAmount = 0;
-  for (let i = 0; i < people.length; i++) {
-    if (i === 1 || i % 2 === 1) {
-      evenAmount += people[i];
-    }
+// function getRowWeights(people) {
+//   let result = [];
+//   let oddAmount = 0;
+//   let evenAmount = 0;
+//   for (let i = 0; i < people.length; i++) {
+//     if (i === 1 || i % 2 === 1) {
+//       evenAmount += people[i];
+//     }
 
-    if (i % 2 === 0) {
-      oddAmount += people[i];
-    }
+//     if (i % 2 === 0) {
+//       oddAmount += people[i];
+//     }
+//   }
+//   result.push(oddAmount);
+//   result.push(evenAmount);
+
+//   return result;
+// }
+
+console.log(getRowWeights([10, 5, 15, 5]));
+
+
+console.log(0 % 2)
+
+function getRowWeights(people) {
+  let result = [0, 0];
+
+  for (let i = 0; i < people.length; i++) {
+
+    result[i % 2] += people[i];
+
   }
-  result.push(oddAmount);
-  result.push(evenAmount);
 
   return result;
 }
-
-console.log(getRowWeights([10, 5, 15, 5]));
