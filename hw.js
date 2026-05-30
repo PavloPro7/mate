@@ -1038,19 +1038,56 @@
 //   return result;
 // }
 
-console.log(getRowWeights([10, 5, 15, 5]));
+// console.log(getRowWeights([10, 5, 15, 5]));
 
+// console.log(0 % 2)
 
-console.log(0 % 2)
+// function getRowWeights(people) {
+//   let result = [0, 0];
 
-function getRowWeights(people) {
-  let result = [0, 0];
+//   for (let i = 0; i < people.length; i++) {
 
-  for (let i = 0; i < people.length; i++) {
+//     result[i % 2] += people[i];
 
-    result[i % 2] += people[i];
+//   }
+
+//   return result;
+// }
+
+function getKiller(suspects, dead) {
+
+  let mostlySuspects = [];
+  let coincidences = [];
+
+  for (const entrie of Object.entries(suspects)) {
+    mostlySuspects.push(entrie[0]);
+    let sum = 0;
+    for (let i = 0; i < entrie[1].length; i++) {
+      for (let j = 0; j < dead.length; j++) {
+        if (entrie[1][i] === dead[j]) {
+          sum++;
+        }
+      }
+    }
+    coincidences.push(sum);
+  }
+
+  let comparison = 0;
+  let resultNum = 0;
+  for (let l = 0; l < coincidences.length; l++) {
+    if (coincidences[l] > comparison) {
+      comparison = coincidences[l];
+      resultNum = l;
+    }
 
   }
 
-  return result;
+  return (comparison > 0) ? mostlySuspects[resultNum] : undefined;
+  // return mostlySuspects[resultNum]
 }
+const perpetrators = {
+  Johnny: ["David", "Kyle", "Lucas"],
+  Peter: ["Keel", "Jan"],
+  James: ["Jacob", "Bill", "Lucas"],
+};
+console.log(getKiller(perpetrators, ["Paul", "Peel"]));
