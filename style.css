@@ -1,6 +1,10 @@
 .game {
-  --cell-size: 100px;
+  --cell-size: 30px;
   --player-size: calc(0.8 * var(--cell-size));
+  --shift: calc(
+    (var(--cell-size) - var(--player-size)) / 2
+  );
+
   position: relative;
   width: calc(3 * var(--cell-size));
   border: 2px solid #000;
@@ -20,8 +24,8 @@
 
 .game__player {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: var(--shift);
+  left: var(--shift);
 
   height: var(--player-size);
   width: var(--player-size);
@@ -30,23 +34,23 @@
 }
 
 .game__player--x--1 {
-  left: calc(0.1 * var(--cell-size));
+  left: var(--shift);
 }
 .game__player--x--2 {
-  left: calc((0.1 * var(--cell-size)) + var(--cell-size));
+  left: calc(var(--cell-size) + var(--shift));
 }
 .game__player--x--3 {
-  left: calc((0.1 * var(--cell-size)) + 2 * var(--cell-size));
+  left: calc(2 * var(--cell-size) + var(--shift));
 }
 
 .game__player--y--1 {
-  top: calc(0.1 * var(--cell-size));
+  top: var(--shift);
 }
 .game__player--y--2 {
-  top: calc((0.1 * var(--cell-size)) + var(--cell-size));
+  top: calc(var(--cell-size) + var(--shift));
 }
 .game__player--y--3 {
-  top: calc((0.1 * var(--cell-size)) + 2 * var(--cell-size));
+  top: calc(2 * var(--cell-size) + var(--shift));
 }
 
 .game__player--color--red {
