@@ -1,92 +1,61 @@
-html {
-  padding-left: 40px
-}
-
-.wrap {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  height: 300px;
-  border: 3px solid red;
-  gap: 0px;
-  justify-content: center;
-  align-items: baseline;
-  flex-wrap: wrap;
-  width: 500px;
-  margin-bottom: 40px;
-}
-
-.box {
-  height: 100px;
-  width: auto;
-  border: 3px solid blue;
-  background-color: yellow;
-  font-size: 30px;
-}
-
-.box-2 {
-  order: 1;
-  padding-top: 20px;
-  align-self: flex-start;
-}
-.box-1 {
-  order: 2;
-  padding-bottom: 15px;
-  align-self: flex-end;
-}
-
-.centering-cont {
+.game {
+  --cell-size: 100px;
+  --player-size: calc(0.8 * var(--cell-size));
   position: relative;
-  margin: 32px;
-  border: 3px solid red;
-  height: 100px;
-  width: 400px;
+  width: calc(3 * var(--cell-size));
+  border: 2px solid #000;
 }
 
-.some-text {
+.game__field {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game__cell {
+  box-sizing: border-box;
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border: 1px dashed #000;
+}
+
+.game__player {
   position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: chartreuse;
-  width: 100px;
-  font-size: 24px;
-  text-align: center;
+  top: 10px;
+  left: 10px;
+
+  height: var(--player-size);
+  width: var(--player-size);
+  background-color: #000;
+  border-radius: 50%;
 }
 
-.img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.game__player--x--1 {
+  left: calc(0.1 * var(--cell-size));
+}
+.game__player--x--2 {
+  left: calc((0.1 * var(--cell-size)) + var(--cell-size));
+}
+.game__player--x--3 {
+  left: calc((0.1 * var(--cell-size)) + 2 * var(--cell-size));
 }
 
-
-.cont3 {
-  display: flex;
-  width: 400px;
-  height: 200px;
-  border: 3px solid green;
-  font-size: 32px;
-  color: white;
-  flex-direction: row;
+.game__player--y--1 {
+  top: calc(0.1 * var(--cell-size));
+}
+.game__player--y--2 {
+  top: calc((0.1 * var(--cell-size)) + var(--cell-size));
+}
+.game__player--y--3 {
+  top: calc((0.1 * var(--cell-size)) + 2 * var(--cell-size));
 }
 
-.box1 {
-  background-color: pink;
-  flex-grow: 1;
-  flex-basis: 100px
+.game__player--color--red {
+  background-color: red;
 }
-
-.box2 {
+.game__player--color--green {
+  background-color: green;
+}
+.game__player--color--blue {
   background-color: blue;
-  max-width: 100px;
-  flex-basis: 60px;
-  flex-grow: 2;
 }
+
