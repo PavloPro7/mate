@@ -1,8 +1,18 @@
-$paddingOfBody: 200px;
+$paddingOfBody: 20px;
 
 body {
   padding: 0 $paddingOfBody;
   background-color: #444;
+}
+
+.card-input {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  padding: 4px 8px;
+  font-size: 18px;
+  z-index: 1;
 }
 
 .container {
@@ -10,31 +20,29 @@ body {
   border: 3px solid #000;
   padding: 10px 20px;
   display: grid;
-  grid-template-columns: repeat(var(--column-count), minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 120px);
   grid-template-rows: repeat(2, 180px);
 
 
   row-gap: 20px;
   column-gap: 10px;
-  justify-content: center;
+  
 
-  grid-auto-flow: column;
+  grid-auto-flow: row;
+  grid-auto-columns: 100px;
+  grid-auto-rows: 50px;
+
+  justify-items: stretch;
+  align-items: stretch;
+
+  justify-content: space-between;
+  align-content: space-between;
 }
 
-@media (min-width: 300px) {
-  .container {
-    --column-count: 2;
-  }
-}
-
-@media (min-width: 400px) {
-  .container {
-    --column-count: auto-fill;
-  }
-}
 
 .card {
-  height: 150px;
+  // width: 50px;
+  // height: 70px;
 
   border: 2px solid #00f;
   background-color: yellowgreen;
