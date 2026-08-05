@@ -1111,22 +1111,46 @@
 // );
 
 
-const myFriend = {
-  name: 'John',
-  age: 25,
-};
+// const myFriend = {
+//   name: 'John',
+//   age: 25,
+// };
 
-let guest = myFriend;
+// let guest = myFriend;
 
-guest.age++;
-// guest.age += 1;
-// guest.age = guest.age + 1;
-// guest.age = #1.age + 1;
-// guest.age = 25 + 1;
-// guest.age = 26;
-// #1.age = 26;
+// guest.age++;
+// // guest.age += 1;
+// // guest.age = guest.age + 1;
+// // guest.age = #1.age + 1;
+// // guest.age = 25 + 1;
+// // guest.age = 26;
+// // #1.age = 26;
 
-quest = null;
+// quest = null;
 
-console.log(myFriend.age);
-// console.log(#1)
+// console.log(myFriend.age);
+// // console.log(#1)
+
+
+const charlie = { name: 'Charlie' };
+const joy = { name: 'Joy' };
+const lordy = { name: 'Lordy' };
+
+const robotJay = { serial: '8f7a4be4-e8ee-4870-a40a-caa53e3e5860' };
+const robotRoby = { serial: '241f9700-6e15-4122-a88a-5380686d0faf' };
+
+
+function makeRobotsPair(robot1, robot2) {
+  const partner = null;
+
+  robot1.partner = robot2 || null;
+}
+
+
+makeRobotsPair(robotJay, robotRoby);
+
+console.log(robotJay.partner === robotRoby);
+
+makeRobotsPair(charlie);
+
+console.log(charlie.partner);
