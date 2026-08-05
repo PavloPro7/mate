@@ -1054,40 +1054,79 @@
 //   return result;
 // }
 
-function getKiller(suspects, dead) {
+// function getKiller(suspects, dead) {
 
-  let mostlySuspects = [];
-  let coincidences = [];
+//   let mostlySuspects = [];
+//   let coincidences = [];
 
-  for (const entrie of Object.entries(suspects)) {
-    mostlySuspects.push(entrie[0]);
-    let sum = 0;
-    for (let i = 0; i < entrie[1].length; i++) {
-      for (let j = 0; j < dead.length; j++) {
-        if (entrie[1][i] === dead[j]) {
-          sum++;
-        }
-      }
-    }
-    coincidences.push(sum);
-  }
+//   for (const entrie of Object.entries(suspects)) {
+//     mostlySuspects.push(entrie[0]);
+//     let sum = 0;
+//     for (let i = 0; i < entrie[1].length; i++) {
+//       for (let j = 0; j < dead.length; j++) {
+//         if (entrie[1][i] === dead[j]) {
+//           sum++;
+//         }
+//       }
+//     }
+//     coincidences.push(sum);
+//   }
 
-  let comparison = 0;
-  let resultNum = 0;
-  for (let l = 0; l < coincidences.length; l++) {
-    if (coincidences[l] > comparison) {
-      comparison = coincidences[l];
-      resultNum = l;
-    }
+//   let comparison = 0;
+//   let resultNum = 0;
+//   for (let l = 0; l < coincidences.length; l++) {
+//     if (coincidences[l] > comparison) {
+//       comparison = coincidences[l];
+//       resultNum = l;
+//     }
 
-  }
+//   }
 
-  return (comparison > 0) ? mostlySuspects[resultNum] : undefined;
-  // return mostlySuspects[resultNum]
-}
-const perpetrators = {
-  Johnny: ["David", "Kyle", "Lucas"],
-  Peter: ["Keel", "Jan"],
-  James: ["Jacob", "Bill", "Lucas"],
+//   return (comparison > 0) ? mostlySuspects[resultNum] : undefined;
+//   // return mostlySuspects[resultNum]
+// }
+// const perpetrators = {
+//   Johnny: ["David", "Kyle", "Lucas"],
+//   Peter: ["Keel", "Jan"],
+//   James: ["Jacob", "Bill", "Lucas"],
+// };
+// console.log(getKiller(perpetrators, ["Paul", "Peel"]));
+
+
+// const myName = 'Misha';
+// let myAge = 39;
+
+// let me = {
+//   name: 'Misha',
+//   age: 39,
+// }
+
+// let guest = me;
+
+// guest.age = 12;
+
+// console.log(
+//   me.age,
+//   guest.age,
+// );
+
+
+const myFriend = {
+  name: 'John',
+  age: 25,
 };
-console.log(getKiller(perpetrators, ["Paul", "Peel"]));
+
+let guest = myFriend;
+
+guest.age++;
+// guest.age += 1;
+// guest.age = guest.age + 1;
+// guest.age = #1.age + 1;
+// guest.age = 25 + 1;
+// guest.age = 26;
+// #1.age = 26;
+
+quest = null;
+
+console.log(myFriend.age);
+// console.log(#1)

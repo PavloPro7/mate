@@ -1,0 +1,7 @@
+myFriend: #1
+guest: #1
+
+#1 {
+  name: 'John',
+  age: 26,
+}
