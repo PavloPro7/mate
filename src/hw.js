@@ -1155,10 +1155,68 @@
 
 // console.log(charlie.partner);
 
-const a = { age: 1 }; // #1
-const b = { age: 1 }; // #2
+// const a = { age: 1 }; // #1
+// const b = { age: 1 }; // #2
 
-const c = a; // #1
+// const c = a; // #1
 
-console.log(a === b); //false, coz this is 2 different objects with same value
-console.log(a === c); //true, coz this is link on the same object #1
+// console.log(a === b); //false, coz this is 2 different objects with same value
+// console.log(a === c); //true, coz this is link on the same object #1
+
+// const bob = {
+//   name: 'Bob',
+//   surname: 'Smith',
+//   partner: null,
+// };
+
+// const alice = {
+//   name: 'Alice',
+//   surname: 'Black',
+//   partner: null,
+// };
+
+// function marry(person1, person2) {
+//   if (person1.partner) {
+//     person1.partner.partner = null;
+//   }
+//   if (person2.partner) {
+//     person2.partner.partner = null;
+//   }
+
+//   person1.partner = person2;
+//   person2.partner = person1;
+// }
+
+// marry(bob, alice);
+// bob.partner.surname = bob.surname;
+
+// marry(bob, {});
+
+// bob.partner.surname = bob.surname;
+
+// console.log(bob.partner.name, bob.partner.surname);
+// console.log(alice.partner);
+
+const bob = {
+  name: 'Bob',
+  surname: 'Smith',
+  partner: null,
+}
+
+
+function clone(source) {
+  // const copy = {};
+
+  // for (const key in source) {
+  //   copy[key] = source[key];
+  // }
+
+  // return copy;
+  return Object.assign({}, source, { x: 123 })
+  return { ...source }; //the most favourite
+}
+
+const bobCopy = clone(bob);
+
+console.log(bobCopy === bob);
+console.log(bobCopy);
