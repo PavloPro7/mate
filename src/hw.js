@@ -1132,25 +1132,33 @@
 // // console.log(#1)
 
 
-const charlie = { name: 'Charlie' };
-const joy = { name: 'Joy' };
-const lordy = { name: 'Lordy' };
+// const charlie = { name: 'Charlie' };
+// const joy = { name: 'Joy' };
+// const lordy = { name: 'Lordy' };
 
-const robotJay = { serial: '8f7a4be4-e8ee-4870-a40a-caa53e3e5860' };
-const robotRoby = { serial: '241f9700-6e15-4122-a88a-5380686d0faf' };
-
-
-function makeRobotsPair(robot1, robot2) {
-  const partner = null;
-
-  robot1.partner = robot2 || null;
-}
+// const robotJay = { serial: '8f7a4be4-e8ee-4870-a40a-caa53e3e5860' };
+// const robotRoby = { serial: '241f9700-6e15-4122-a88a-5380686d0faf' };
 
 
-makeRobotsPair(robotJay, robotRoby);
+// function makeRobotsPair(robot1, robot2) {
+//   const partner = null;
 
-console.log(robotJay.partner === robotRoby);
+//   robot1.partner = robot2 || null;
+// }
 
-makeRobotsPair(charlie);
 
-console.log(charlie.partner);
+// makeRobotsPair(robotJay, robotRoby);
+
+// console.log(robotJay.partner === robotRoby);
+
+// makeRobotsPair(charlie);
+
+// console.log(charlie.partner);
+
+const a = { age: 1 }; // #1
+const b = { age: 1 }; // #2
+
+const c = a; // #1
+
+console.log(a === b); //false, coz this is 2 different objects with same value
+console.log(a === c); //true, coz this is link on the same object #1
