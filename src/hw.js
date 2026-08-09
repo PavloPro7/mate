@@ -1197,48 +1197,64 @@
 // console.log(bob.partner.name, bob.partner.surname);
 // console.log(alice.partner);
 
-const bob = {
-  name: 'Bob',
-  surname: 'Smith',
-  partner: null,
-}
+// const bob = {
+//   name: 'Bob',
+//   surname: 'Smith',
+//   partner: null,
+// }
 
 
-function clone(source) {
-  // const copy = {};
+// function clone(source) {
+//   // const copy = {};
 
-  // for (const key in source) {
-  //   copy[key] = source[key];
-  // }
+//   // for (const key in source) {
+//   //   copy[key] = source[key];
+//   // }
 
-  // return copy;
-  return Object.assign({}, source, { x: 123 })
-  return { ...source }; //the most favourite
-}
+//   // return copy;
+//   return Object.assign({}, source, { x: 123 })
+//   return { ...source }; //the most favourite
+// }
 
-const bobCopy = clone(bob);
+// const bobCopy = clone(bob);
 
-console.log(bobCopy === bob);
-console.log(bobCopy);
+// console.log(bobCopy === bob);
+// console.log(bobCopy);
 
-const kobi = {
-  chipVer: 9,
-  serialNo: 413,
-  wheels: 2,
-};
+// const kobi = {
+//   chipVer: 9,
+//   serialNo: 413,
+//   wheels: 2,
+// };
 
-const parts = [
-  { wheels: 6 },
-  { chipVer: 16 },
-  { displays: 2 },
-];
+// const parts = [
+//   { wheels: 6 },
+//   { chipVer: 16 },
+//   { displays: 2 },
+// ];
 
-function upgradeRobot(robot, parts) {
-  for (const part of parts) {
-    Object.assign(robot, part);
+// function upgradeRobot(robot, parts) {
+//   for (const part of parts) {
+//     Object.assign(robot, part);
+//   }
+// }
+
+// upgradeRobot(kobi, parts);
+
+// console.log(kobi);
+
+const kolli = { Kolli: 'name', 123: 'chipVer', 3: 'wheels' };
+const robert = { Robert: 'name', 123: 'chipVer', 113: 'chipVer' };
+
+const copy = {};
+
+function inverseRobot(robot) {
+  for (const [value, key] of Object.entries(robot)) {
+    return Object.assign(copy, {[key]: value});
   }
 }
 
-upgradeRobot(kobi, parts);
+inverseRobot(kolli);
 
-console.log(kobi);
+console.log(copy);
+
