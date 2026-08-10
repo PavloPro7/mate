@@ -1,25 +1,30 @@
-// function isWerewolf(target){
-//     let direct = '';
-//     let indirect = '';
+const isWerewolfWrap = () => {
+  function isWerewolf(target) {
+    let direct = "";
+    let indirect = "";
 
-//     for (let ch of target) {
-//         if (true) {
-//             direct += ch;
-//             indirect = ch + indirect;
-//         }
-//     }
-//     return direct === indirect;
-// }
+    for (let ch of target) {
+      if (true) {
+        direct += ch;
+        indirect = ch + indirect;
+      }
+    }
+    return direct === indirect;
+  }
 
-// console.log(isWerewolf('level'));
-// function toAllTypes(num) {
-//     return `binary: ${num.toString(2)},
-// octal: ${num.toString(8)},
-// decimal: ${num.toString(10)},
-// hexadecimal: ${num.toString(16)}`
-// }
+  console.log(isWerewolf("level"));
+};
 
-// console.log(toAllTypes(20));
+const toAllTypesOfNumberWrap = () => {
+  function toAllTypes(num) {
+    return `binary: ${num.toString(2)},
+            octal: ${num.toString(8)},
+            decimal: ${num.toString(10)},
+            hexadecimal: ${num.toString(16)}`;
+  }
+
+  console.log(toAllTypes(20));
+};
 
 // const inventory = ['sword', 'shield', 'potion'];
 
@@ -1092,7 +1097,6 @@
 // };
 // console.log(getKiller(perpetrators, ["Paul", "Peel"]));
 
-
 // const myName = 'Misha';
 // let myAge = 39;
 
@@ -1109,7 +1113,6 @@
 //   me.age,
 //   guest.age,
 // );
-
 
 // const myFriend = {
 //   name: 'John',
@@ -1131,7 +1134,6 @@
 // console.log(myFriend.age);
 // // console.log(#1)
 
-
 // const charlie = { name: 'Charlie' };
 // const joy = { name: 'Joy' };
 // const lordy = { name: 'Lordy' };
@@ -1139,13 +1141,11 @@
 // const robotJay = { serial: '8f7a4be4-e8ee-4870-a40a-caa53e3e5860' };
 // const robotRoby = { serial: '241f9700-6e15-4122-a88a-5380686d0faf' };
 
-
 // function makeRobotsPair(robot1, robot2) {
 //   const partner = null;
 
 //   robot1.partner = robot2 || null;
 // }
-
 
 // makeRobotsPair(robotJay, robotRoby);
 
@@ -1203,7 +1203,6 @@
 //   partner: null,
 // }
 
-
 // function clone(source) {
 //   // const copy = {};
 
@@ -1258,28 +1257,139 @@
 
 // console.log(copy);
 
-const myObj = { a: 10, b: 20, c: 30 };
+const objValuesDemonstration = () => {
+  const myObj = { a: 10, b: 20, c: 30 };
 
-const array = [10, 20, 30]
+  const array = [10, 20, 30];
 
-console.log(Object.values(myObj), array); // Output: [10, 20, 30]
+  console.log(Object.values(myObj), array); // Output: [10, 20, 30]
+};
 
-function generateChart(statistics) {
-  // write code here
-  const WHOLE_PIE_DEGREES = 360;
+function generateChartWrap() {
+  function generateChart(statistics) {
+    // write code here
+    const WHOLE_PIE_DEGREES = 360;
 
-  let totalAmount = 0;
+    let totalAmount = 0;
 
-  // for (value of Object.values(statistics)) {g
-  //   totalAmount += value;
-  // }
-  totalAmount = Object.values(statistics).reduce((sum, num) => sum + num, 0);
+    // for (value of Object.values(statistics)) {g
+    //   totalAmount += value;
+    // }
+    totalAmount = Object.values(statistics).reduce((sum, num) => sum + num, 0);
 
-  for (const key in statistics) {
-    statistics[key] = Math.round(WHOLE_PIE_DEGREES * statistics[key] / totalAmount);
+    for (const key in statistics) {
+      statistics[key] = Math.round(
+        (WHOLE_PIE_DEGREES * statistics[key]) / totalAmount,
+      );
+    }
+
+    return statistics;
   }
 
-  return statistics;
+  console.log(generateChart({ cleaner: 2, driver: 8 }));
 }
 
-console.log(generateChart({ cleaner: 2, driver: 8 }))
+function objectDestructuring() {
+  const bob = {
+    name: "Bob",
+    surname: "Smith",
+    partner: null,
+  };
+  // const { name } = bob;
+  // console.log(name);
+
+  const bobCopy = clone(bob);
+
+  // function clone(source) {
+  //   const { name: firstName = '', surname, age = 18 } = source;
+  function clone({ name: firstName = "", age = 18, ...rest }) {
+    console.log(rest);
+    return {
+      // ...source,
+      // name: source.name,
+      // surname: source.surname,
+      // name: name,
+      name: firstName,
+      age,
+      x: 123,
+      // ...{ partner: 1, b: 2 },
+    };
+  }
+
+  console.log(bobCopy);
+}
+
+const functionIsAnObject = () => {
+  const user = () => {
+    console.log("called an object 'user'");
+  };
+
+  user.firstName = "Bob";
+  user["lastName"] = "Smyth";
+  user.age = 39;
+
+  printInfo(user);
+
+  function printInfo({ firstName, lastName, age = 0 }) {
+    const message = `!!!${firstName} ${lastName} is ${age}!!!`;
+
+    console.log(message);
+  }
+
+  user();
+  const array = [];
+
+  array[0] = 1;
+  array[1] = 1;
+
+  console.log(array);
+};
+const statefulObject = () => {
+  const exState = { foo: "bar", bar: "foo" };
+  const exActions = [
+    {
+      type: "addProperties",
+      extraData: {
+        name: "Jim",
+        hello: "world",
+      },
+    },
+    {
+      type: "removeProperties",
+      keysToRemove: ["bar", "hello"],
+    },
+    {
+      type: "addProperties",
+      extraData: { another: "one" },
+    },
+    {
+      type: "clear", // the state should become empty after performing this action
+    },
+  ];
+
+  function transformState(state, actions) {
+    for (const action of actions) {
+      if (action.type === "addProperties") {
+        for (const key in action.extraData) {
+          state[key] = action.extraData[key];
+        }
+      }
+
+      if (action.type === "removeProperties") {
+        for (const key of action.keysToRemove) {
+          delete state[key];
+        }
+      }
+
+      if (action.type === "clear") {
+        for (const key in state) {
+          delete state[key];
+        }
+      }
+    }
+  }
+
+  transformState(exState, exActions);
+
+  console.log(exState);
+};
