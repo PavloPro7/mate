@@ -1243,18 +1243,43 @@
 
 // console.log(kobi);
 
-const kolli = { Kolli: 'name', 123: 'chipVer', 3: 'wheels' };
-const robert = { Robert: 'name', 123: 'chipVer', 113: 'chipVer' };
+// const kolli = { Kolli: 'name', 123: 'chipVer', 3: 'wheels' };
+// const robert = { Robert: 'name', 123: 'chipVer', 113: 'chipVer' };
 
-const copy = {};
+// const copy = {};
 
-function inverseRobot(robot) {
-  for (const [value, key] of Object.entries(robot)) {
-    return Object.assign(copy, {[key]: value});
+// function inverseRobot(robot) {
+//   for (const [value, key] of Object.entries(robot)) {
+//     return Object.assign(copy, {[key]: value});
+//   }
+// }
+
+// inverseRobot(kolli);
+
+// console.log(copy);
+
+const myObj = { a: 10, b: 20, c: 30 };
+
+const array = [10, 20, 30]
+
+console.log(Object.values(myObj), array); // Output: [10, 20, 30]
+
+function generateChart(statistics) {
+  // write code here
+  const WHOLE_PIE_DEGREES = 360;
+
+  let totalAmount = 0;
+
+  // for (value of Object.values(statistics)) {g
+  //   totalAmount += value;
+  // }
+  totalAmount = Object.values(statistics).reduce((sum, num) => sum + num, 0);
+
+  for (const key in statistics) {
+    statistics[key] = Math.round(WHOLE_PIE_DEGREES * statistics[key] / totalAmount);
   }
+
+  return statistics;
 }
 
-inverseRobot(kolli);
-
-console.log(copy);
-
+console.log(generateChart({ cleaner: 2, driver: 8 }))
