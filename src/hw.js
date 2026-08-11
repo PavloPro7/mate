@@ -1344,6 +1344,7 @@ const functionIsAnObject = () => {
 
   console.log(array);
 };
+
 const statefulObject = () => {
   const exState = { foo: "bar", bar: "foo" };
   const exActions = [
@@ -1393,3 +1394,69 @@ const statefulObject = () => {
 
   console.log(exState);
 };
+
+const transformStateWithClonesWrap = () => {
+  function transformStateWithClones(state, actions) {
+    const stateHistory = [];
+
+    for (const action of actions) {
+      switch (action.type) {
+        case "addProperties":
+          addProperties(state, action.extraData);
+          break;
+
+        case "removeProperties":
+          removeProperties(state, action.keysToRemove);
+          break;
+
+        default:
+          clearProperties(state);
+          break;
+      }
+      stateHistory.push({ ...state });
+    }
+
+    return stateHistory;
+  }
+
+  function addProperties(state, extraData) {
+    Object.assign(state, extraData);
+  }
+
+  function removeProperties(state, keysToRemove) {
+    for (const key of keysToRemove) {
+      delete state[key];
+    }
+  }
+
+  function clearProperties(state) {
+    for (const key in state) {
+      delete state[key];
+    }
+  }
+
+const state = {
+  foo: 'bar',
+  bar: 'foo',
+};
+
+const stateHistory = transformStateWithClones(state, [
+  {
+    type: 'addProperties',
+    extraData: { name: 'Jim', hello: 'world' },
+  },
+  {
+    type: 'removeProperties',
+    keysToRemove: ['bar', 'hello'],
+  },
+  {
+    type: 'addProperties',
+    extraData: { another: 'one' },
+  },
+]);
+
+console.log(stateHistory);
+
+};
+
+transformStateWithClonesWrap();
