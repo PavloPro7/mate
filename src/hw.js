@@ -1163,99 +1163,103 @@ const toAllTypesOfNumberWrap = () => {
 // console.log(a === b); //false, coz this is 2 different objects with same value
 // console.log(a === c); //true, coz this is link on the same object #1
 
-// const bob = {
-//   name: 'Bob',
-//   surname: 'Smith',
-//   partner: null,
-// };
+const objectAsReferenceInOtherObject = () => {
+  const bob = {
+    name: "Bob",
+    surname: "Smith",
+    partner: null,
+  };
 
-// const alice = {
-//   name: 'Alice',
-//   surname: 'Black',
-//   partner: null,
-// };
+  const alice = {
+    name: "Alice",
+    surname: "Black",
+    partner: null,
+  };
 
-// function marry(person1, person2) {
-//   if (person1.partner) {
-//     person1.partner.partner = null;
-//   }
-//   if (person2.partner) {
-//     person2.partner.partner = null;
-//   }
+  function marry(person1, person2) {
+    if (person1.partner) {
+      person1.partner.partner = null;
+    }
+    if (person2.partner) {
+      person2.partner.partner = null;
+    }
 
-//   person1.partner = person2;
-//   person2.partner = person1;
-// }
+    person1.partner = person2;
+    person2.partner = person1;
+  }
 
-// marry(bob, alice);
-// bob.partner.surname = bob.surname;
+  marry(bob, alice);
+  bob.partner.surname = bob.surname;
 
-// marry(bob, {});
+  marry(bob, {});
 
-// bob.partner.surname = bob.surname;
+  bob.partner.surname = bob.surname;
 
-// console.log(bob.partner.name, bob.partner.surname);
-// console.log(alice.partner);
+  console.log(bob.partner.name, bob.partner.surname);
+  console.log(alice.partner);
+};
 
-// const bob = {
-//   name: 'Bob',
-//   surname: 'Smith',
-//   partner: null,
-// }
+const cloningExamples = () => {
+  const bob = {
+    name: "Bob",
+    surname: "Smith",
+    partner: null,
+  };
 
-// function clone(source) {
-//   // const copy = {};
+  function clone(source) {
+    // const copy = {};
 
-//   // for (const key in source) {
-//   //   copy[key] = source[key];
-//   // }
+    // for (const key in source) {
+    //   copy[key] = source[key];
+    // }
 
-//   // return copy;
-//   return Object.assign({}, source, { x: 123 })
-//   return { ...source }; //the most favourite
-// }
+    // return copy;
+    return Object.assign({}, source, { x: 123 });
+    return { ...source }; //the most favourite
+  }
 
-// const bobCopy = clone(bob);
+  const bobCopy = clone(bob);
 
-// console.log(bobCopy === bob);
-// console.log(bobCopy);
+  console.log(bobCopy === bob);
+  console.log(bobCopy);
+};
 
-// const kobi = {
-//   chipVer: 9,
-//   serialNo: 413,
-//   wheels: 2,
-// };
+const upgrateRobotWrap = () => {
+  const kobi = {
+    chipVer: 9,
+    serialNo: 413,
+    wheels: 2,
+  };
 
-// const parts = [
-//   { wheels: 6 },
-//   { chipVer: 16 },
-//   { displays: 2 },
-// ];
+  const parts = [{ wheels: 6 }, { chipVer: 16 }, { displays: 2 }];
 
-// function upgradeRobot(robot, parts) {
-//   for (const part of parts) {
-//     Object.assign(robot, part);
-//   }
-// }
+  function upgradeRobot(robot, parts) {
+    for (const part of parts) {
+      Object.assign(robot, part);
+    }
+  }
 
-// upgradeRobot(kobi, parts);
+  upgradeRobot(kobi, parts);
 
-// console.log(kobi);
+  console.log(kobi);
+};
 
-// const kolli = { Kolli: 'name', 123: 'chipVer', 3: 'wheels' };
-// const robert = { Robert: 'name', 123: 'chipVer', 113: 'chipVer' };
+const inverseRobotWrap = () => {
+  const kolli = { Kolli: "name", 123: "chipVer", 3: "wheels" };
+  const robert = { Robert: "name", 123: "chipVer", 113: "chipVer" };
 
-// const copy = {};
+  const copy = {};
 
-// function inverseRobot(robot) {
-//   for (const [value, key] of Object.entries(robot)) {
-//     return Object.assign(copy, {[key]: value});
-//   }
-// }
+  function inverseRobot(robot) {
+    for (const [value, key] of Object.entries(robot)) {
+      return Object.assign(copy, { [key]: value });
+    }
+  }
 
-// inverseRobot(kolli);
+  inverseRobot(kolli);
 
-// console.log(copy);
+  console.log(copy);
+};
 
 const objValuesDemonstration = () => {
   const myObj = { a: 10, b: 20, c: 30 };
@@ -1435,28 +1439,63 @@ const transformStateWithClonesWrap = () => {
     }
   }
 
-const state = {
-  foo: 'bar',
-  bar: 'foo',
+  const state = {
+    foo: "bar",
+    bar: "foo",
+  };
+
+  const stateHistory = transformStateWithClones(state, [
+    {
+      type: "addProperties",
+      extraData: { name: "Jim", hello: "world" },
+    },
+    {
+      type: "removeProperties",
+      keysToRemove: ["bar", "hello"],
+    },
+    {
+      type: "addProperties",
+      extraData: { another: "one" },
+    },
+  ]);
+
+  console.log(stateHistory);
 };
 
-const stateHistory = transformStateWithClones(state, [
-  {
-    type: 'addProperties',
-    extraData: { name: 'Jim', hello: 'world' },
-  },
-  {
-    type: 'removeProperties',
-    keysToRemove: ['bar', 'hello'],
-  },
-  {
-    type: 'addProperties',
-    extraData: { another: 'one' },
-  },
-]);
+const objectMethods = () => {
+  const bob = {
+    firstName: "Bob",
+    lastName: "Smyth",
+    age: 39,
 
-console.log(stateHistory);
+    // print2: function() { ... }
+    print2() {
+      const { firstName, lastName, age = 0 } = this;
+      const message = `!!!!${firstName} ${lastName} is ${age}!!!`;
 
+      console.log(message);
+    },
+  };
+
+  // const bob2 = {
+  //   firstName: 'Bob2',
+  //   lastName: 'Smyth',
+  //   age: 39,
+
+  //   print: printInfo,
+  // };
+
+  // printInfo(123);
+  // bob.print = printInfo;
+  bob.print2();
+  // bob2.print();
+
+  // function printInfo() {
+  //   const { firstName, lastName, age = 0 } = this;
+  //   const message = `!!!!${firstName} ${lastName} is ${age}!!!`;
+
+  //   console.log(message);
+  // }
 };
 
-transformStateWithClonesWrap();
+
