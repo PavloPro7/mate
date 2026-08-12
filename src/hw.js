@@ -1498,4 +1498,43 @@ const objectMethods = () => {
   // }
 };
 
+const computedProperties = () => {
+  const admin = {
+    get fullName() {
+      //never to be some parameters
+      return `${this.firstName} ${this.lastName}`;
+    },
 
+    set fullName(value) {
+      const parts = value.split(" ");
+
+      if (parts.length < 2) {
+        return;
+      }
+
+      this.firstName = parts[0];
+      this.lastName = parts[1];
+    },
+
+    firstName: "Bob",
+    lastName: "Smith",
+
+    getFullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+  };
+
+  congratulate(admin);
+  admin.fullName = "Alice Black";
+  // admin.firstName = 'Alice';
+  // admin.lastName = 'Black';
+  congratulate(admin);
+
+  function congratulate(user) {
+    console.log(`Hi, ${user.fullName}`);
+  }
+
+  console.log(admin.firstName);
+};
+
+computedProperties();
