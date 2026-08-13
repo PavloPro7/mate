@@ -1537,4 +1537,147 @@ const computedProperties = () => {
   console.log(admin.firstName);
 };
 
-computedProperties();
+const makeRobotWrap = () => {
+  function makeRobot(name, wheels, version) {
+    const robot = {
+      name,
+      version,
+      wheels,
+
+      get info() {
+        return `name: ${this.name}, chip version: ${this.version}, wheels: ${this.wheels}`;
+      },
+
+      coords: {
+        x: 0,
+        y: 0,
+      },
+
+      get location() {
+        return `${this.name}: x=${this.coords.x}, y=${this.coords.y}`;
+      },
+
+      goForward(step = 1) {
+        if (step < 0) {
+          return;
+        }
+
+        this.coords.y += step;
+
+        return this;
+      },
+
+      goBack(step = 1) {
+        if (step < 0) {
+          return;
+        }
+
+        this.coords.y -= step;
+
+        return this;
+      },
+
+      goRight(step = 1) {
+        if (step < 0) {
+          return;
+        }
+
+        this.coords.x += step;
+
+        return this;
+      },
+
+      goLeft(step = 1) {
+        if (step < 0) {
+          return;
+        }
+
+        this.coords.x += step;
+
+        return this;
+      },
+
+      evacuate() {
+        this.coords.x = 1400;
+        this.coords.y = 500;
+
+        return this;
+      },
+    };
+
+    return robot;
+  }
+
+  const mike = makeRobot("Mike", 3, 1.54);
+  mike.goForward(2).goLeft().evacuate();
+  console.log(mike.info, mike.location);
+};
+
+const arrayCreating = () => {
+  const words = ["one", "two", "three"];
+  const numbers = [1, 3, 1, 5, 2, 1, 4];
+
+  console.log(words, numbers);
+  console.log([]);
+  console.log(["Misha", 38, true]); //tuple - rare
+
+  const numbers2 = new Array(1, 3, 1, 5, 2, 1, 4);
+  const numbers3 = Array(1, 3, 5);
+
+  console.log(numbers2, numbers3);
+
+  const userName = "Misha";
+
+  console.log(
+    userName.split(""),
+    [...userName], ///userName can be also the array
+    Array.from(userName),
+  );
+
+  for (let i = 0; i < words.length; i++) {
+    console.log(words[i]);
+  }
+
+  for (const n of numbers) {
+    console.log(n);
+  }
+};
+
+const calculateCostWrap = () => {
+  const bucket = {
+    display: 20,
+    wheel: 100,
+    cpu: 40,
+  };
+
+  const products = {
+    amazobot: {
+      wheel: 12.5,
+    },
+    robozetka: {
+      display: 56.2,
+      cpu: 150,
+    },
+  };
+
+  function calculateCost(bucket, products) {
+    let totalAmount = 0;
+
+    for (const shop in products) {
+      const productsShop = products[shop];
+      for (const unit in products[shop]) {
+        if (bucket[unit] !== undefined) {
+          const productsCost = productsShop[unit];
+          const productsCalc = productsCost * bucket[unit];
+          totalAmount += productsCalc;
+        }
+      }
+    }
+
+    return totalAmount;
+  }
+  console.log(calculateCost(bucket, products));
+};
+
+calculateCostWrap();
+
