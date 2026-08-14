@@ -1134,34 +1134,36 @@ const toAllTypesOfNumberWrap = () => {
 // console.log(myFriend.age);
 // // console.log(#1)
 
-// const charlie = { name: 'Charlie' };
-// const joy = { name: 'Joy' };
-// const lordy = { name: 'Lordy' };
+const makeRobotPairWrap = () => {
+  const charlie = { name: "Charlie" };
+  const joy = { name: "Joy" };
+  const lordy = { name: "Lordy" };
 
-// const robotJay = { serial: '8f7a4be4-e8ee-4870-a40a-caa53e3e5860' };
-// const robotRoby = { serial: '241f9700-6e15-4122-a88a-5380686d0faf' };
+  const robotJay = { serial: "8f7a4be4-e8ee-4870-a40a-caa53e3e5860" };
+  const robotRoby = { serial: "241f9700-6e15-4122-a88a-5380686d0faf" };
 
-// function makeRobotsPair(robot1, robot2) {
-//   const partner = null;
+  function makeRobotsPair(robot1, robot2) {
+    const partner = null;
 
-//   robot1.partner = robot2 || null;
-// }
+    robot1.partner = robot2 || null;
+  }
 
-// makeRobotsPair(robotJay, robotRoby);
+  makeRobotsPair(robotJay, robotRoby);
 
-// console.log(robotJay.partner === robotRoby);
+  console.log(robotJay.partner === robotRoby);
 
-// makeRobotsPair(charlie);
+  makeRobotsPair(charlie);
 
-// console.log(charlie.partner);
+  console.log(charlie.partner);
 
-// const a = { age: 1 }; // #1
-// const b = { age: 1 }; // #2
+  const a = { age: 1 }; // #1
+  const b = { age: 1 }; // #2
 
-// const c = a; // #1
+  const c = a; // #1
 
-// console.log(a === b); //false, coz this is 2 different objects with same value
-// console.log(a === c); //true, coz this is link on the same object #1
+  console.log(a === b); //false, coz this is 2 different objects with same value
+  console.log(a === c); //true, coz this is link on the same object #1
+};
 
 const objectAsReferenceInOtherObject = () => {
   const bob = {
@@ -1679,5 +1681,22 @@ const calculateCostWrap = () => {
   console.log(calculateCost(bucket, products));
 };
 
-calculateCostWrap();
+const modifyingArray = () => {
+  const numbers = [0, 1, 2, 3, 4];
 
+  console.log(numbers);
+  numbers[2] = 99;
+  numbers[numbers.length] = 99;
+  numbers.push(100, 101, 102);
+  numbers.unshift(100, 101, 102);
+  const n = numbers.pop();
+  const x = numbers.shift();
+  console.log(x);
+  numbers.length = numbers.length - 1;
+  console.log(numbers);
+  console.log(n);
+  console.log([1, 23, ...numbers]);
+  console.log([].pop());
+};
+
+modifyingArray();
