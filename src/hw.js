@@ -1699,4 +1699,56 @@ const modifyingArray = () => {
   console.log([].pop());
 };
 
-modifyingArray();
+const reinventingArrayMethods = () => {
+  numbers = [1, 2, 3, 4];
+
+  numbers.push = function (...elements) {
+    for (const element of elements) {
+      this[this.length] = element;
+    }
+
+    return this.length;
+  };
+
+  numbers.pop = function () {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    const poppedNum = this[this.length - 1];
+
+    this.length = this.length - 1;
+
+    return poppedNum;
+  };
+
+  numbers.unshift = function (...args) {
+    const unshiftedNumbers = [...args, ...this];
+  
+    Object.assign(this, unshiftedNumbers);
+
+    return this.length;
+  };
+
+
+  numbers.shift = function () {
+    if (this.length === 0) {
+      return;
+    }
+
+    const deletedElement = this[0];
+
+    for (let i = 1; i < this.length; i++) {
+      this[i - 1] = this[i];
+    }
+
+    this.length--;
+
+    return deletedElement;
+  }
+
+  console.log(numbers.slice(1))
+  console.log([].shift())
+};
+
+reinventingArrayMethods();
