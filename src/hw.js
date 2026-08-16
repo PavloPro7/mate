@@ -1724,12 +1724,11 @@ const reinventingArrayMethods = () => {
 
   numbers.unshift = function (...args) {
     const unshiftedNumbers = [...args, ...this];
-  
+
     Object.assign(this, unshiftedNumbers);
 
     return this.length;
   };
-
 
   numbers.shift = function () {
     if (this.length === 0) {
@@ -1745,38 +1744,58 @@ const reinventingArrayMethods = () => {
     this.length--;
 
     return deletedElement;
-  }
+  };
 
-  console.log(numbers.slice(1))
-  console.log([].shift())
+  console.log(numbers.slice(1));
+  console.log([].shift());
 };
 
 const findingElementInArray = () => {
-
-
-  const words = ['first', 'name', 'and', 'last', 'name'];
+  const words = ["first", "name", "and", "last", "name"];
 
   console.log(words);
 
   console.log(
-    words.includes('and'),
-    words.includes('and', 3), 
-    words.includes('a'), //false - precise coinsidence
-  );
-
-
-  console.log(
-    words.indexOf('name'), // 1
-    words.indexOf('name', 3), // 4
+    words.includes("and"),
+    words.includes("and", 3),
+    words.includes("a"), //false - precise coinsidence
   );
 
   console.log(
-    words.lastIndexOf('name'), // 4
-    words.lastIndexOf('name', 3), // 1
-  )
+    words.indexOf("name"), // 1
+    words.indexOf("name", 3), // 4
+  );
 
+  console.log(
+    words.lastIndexOf("name"), // 4
+    words.lastIndexOf("name", 3), // 1
+  );
+};
 
-}
+const indexOfWrap = () => {
+  const numbers = [5, 6, 1, 4, 2, 5];
 
+  numbers.indexOf = function (arg, count = 0) {
+    if (count < 0) {
+      const negativeCount = this.length + count;
 
+      for (let i = negativeCount; i < this.length; i++) {
+        if (this[i] === arg) {
+          return i;
+        }
+      }
+    }
 
+    for (let i = count; i < this.length; i++) {
+      if (this[i] === arg) {
+        return i;
+      }
+    }
+
+    return -1;
+  };
+
+  console.log(numbers.indexOf(5, -2));
+};
+
+indexOfWrap();
