@@ -1751,4 +1751,32 @@ const reinventingArrayMethods = () => {
   console.log([].shift())
 };
 
-reinventingArrayMethods();
+const findingElementInArray = () => {
+
+
+  const words = ['first', 'name', 'and', 'last', 'name'];
+
+  console.log(words);
+
+  console.log(
+    words.includes('and'),
+    words.includes('and', 3), 
+    words.includes('a'), //false - precise coinsidence
+  );
+
+
+  console.log(
+    words.indexOf('name'), // 1
+    words.indexOf('name', 3), // 4
+  );
+
+  console.log(
+    words.lastIndexOf('name'), // 4
+    words.lastIndexOf('name', 3), // 1
+  )
+
+
+}
+
+
+
