@@ -1775,27 +1775,57 @@ const findingElementInArray = () => {
 const indexOfWrap = () => {
   const numbers = [5, 6, 1, 4, 2, 5];
 
-  numbers.indexOf = function (arg, count = 0) {
-    if (count < 0) {
-      const negativeCount = this.length + count;
+  numbers.indexOf = function (searchElement, fromIndex = 0) {
+    let index = fromIndex;
 
-      for (let i = negativeCount; i < this.length; i++) {
-        if (this[i] === arg) {
-          return i;
-        }
-      }
+    // fromIndex -3 means the 3rd element from the end
+    // this.length - 3 === -3 + this.length
+    if (index < 0) {
+      index += this.length;
     }
 
-    for (let i = count; i < this.length; i++) {
-      if (this[i] === arg) {
+    // If the index is still negative, we set start iteration from 0
+    if (index < 0) {
+      index = 0;
+    }
+
+    for (let i = index; i < this.length; i++) {
+      // We return an index of the element that is equal to the searchElement
+      if (searchElement === this[i]) {
         return i;
       }
     }
 
+    // If searchElement was not found we should return -1
     return -1;
   };
 
   console.log(numbers.indexOf(5, -2));
 };
 
-indexOfWrap();
+const includesWrap = () => {
+  const numbers = [5, 6, 1, 4, 2, 5];
+
+  numbers.includes = function (searchElement, fromIndex = 0) {
+    let index = fromIndex;
+
+    if (index < 0) {
+      index += this.length;
+    }
+
+    if (index < 0) {
+      index = 0;
+    }
+
+    for (let i = index; i < this.length; i++) {
+      if (searchElement === this[i]) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+};
+
+includesjWrap();
+
