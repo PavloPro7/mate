@@ -1827,5 +1827,31 @@ const includesWrap = () => {
   };
 };
 
-includesjWrap();
+const searchRobotWrap = () => {
+  const robot = {
+    name: "Sundar",
+  };
+  const workPlaces = [
+    {
+      name: "mate academy",
+      staff: ["Roma", "Misha", "Yura"],
+    },
+    {
+      name: "Google",
+      staff: ["Larry", "Sergey", "Sundar"],
+    },
+  ];
+
+  const searchRobot = (robot, workPlaces) => {
+    for (const workPlace of workPlaces) {
+      if (workPlace.staff.includes(robot.name)) {
+        return workPlace.name;
+      }
+    }
+  };
+
+  console.log(searchRobot(robot, workPlaces));
+};
+
+searchRobotWrap();
 
