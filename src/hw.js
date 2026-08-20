@@ -1217,7 +1217,6 @@ const cloningExamples = () => {
 
     // return copy;
     return Object.assign({}, source, { x: 123 });
-    return { ...source }; //the most favourite
   }
 
   const bobCopy = clone(bob);
@@ -1854,25 +1853,55 @@ const searchRobotWrap = () => {
 };
 
 const splitJoinSliceMethods = () => {
-
-  const phrase = 'My name is Misha Grinko from Odesa';
-  const words = phrase.split(' ', 4);
+  const phrase = "My name is Misha Grinko from Odesa";
+  const words = phrase.split(" ", 4);
 
   console.log(words);
-  console.log(words.join('---'));
+  console.log(words.join("---"));
 
-  console.log(
-    words.slice(1, -2)
-  )
+  console.log(words.slice(1));
 
+  const numbers = [1, 2, 3, 4, 5];
 
+  console.log(numbers.slice(-900, 1));
+};
 
+const sliceReinvention = () => {
+  const numbers = [5, 6, 1, 4, 2, 5];
 
+  numbers.slice = function (startIncludeIndex = 0, lastIndex = this.length) {
+    let index = startIncludeIndex;
 
+    if (index < 0) {
+      index += this.length;
 
+      if (index < 0) {
+        index = 0;
+      }
+    }
 
+    let endIndex = lastIndex;
 
+    if (endIndex >= this.length) {
+      endIndex = this.length;
+    }
 
-}
+    if (endIndex < 0) {
+      endIndex += this.length;
+    }
 
-splitJoinSliceMethods();
+    const slicedArray = [];
+    let count = 0;
+
+    for (; index < endIndex; index++) {
+      slicedArray[count] = this[index];
+      count++;
+    }
+
+    return slicedArray;
+  };
+
+  console.log(numbers.slice(1, 2));
+};
+
+sliceReinvention();
