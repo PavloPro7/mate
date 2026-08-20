@@ -1853,5 +1853,26 @@ const searchRobotWrap = () => {
   console.log(searchRobot(robot, workPlaces));
 };
 
-searchRobotWrap();
+const splitJoinSliceMethods = () => {
 
+  const phrase = 'My name is Misha Grinko from Odesa';
+  const words = phrase.split(' ', 4);
+
+  console.log(words);
+  console.log(words.join('---'));
+
+  console.log(
+    words.slice(1, -2)
+  )
+
+
+
+
+
+
+
+
+
+}
+
+splitJoinSliceMethods();
