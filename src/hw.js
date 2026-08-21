@@ -1947,3 +1947,35 @@ const sliceCorrectPlayback = () => {
     return normalizedIndex;
   }
 };
+
+const joinReinvention = () => {
+  const numbers = [1, 2, 3, 4, 5];
+
+  numbers.join = function (separator = ",") {
+    let result = "";
+
+    for (let i = 0; i < this.length; i++) {
+      if (i > 0) {
+        result += separator;
+      }
+
+      let part = this[i];
+
+      if (part === null || part === undefined) {
+        part = "";
+      }
+
+      result += part;
+    }
+
+    return result;
+  };
+
+  console.log(numbers.join(""));
+  console.log(isNaN(undefined));
+  const result = "";
+  result += numbers;
+  console.log();
+};
+
+joinReinvention();
