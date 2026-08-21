@@ -1904,4 +1904,46 @@ const sliceReinvention = () => {
   console.log(numbers.slice(1, 2));
 };
 
-sliceReinvention();
+const sliceCorrectPlayback = () => {
+  numbers.slice = function (start = 0, end = this.length) {
+    // if we don't pass start or end we should take all the elements
+
+    // if start or end are out of the range for current array (< 0 or > this.length)
+    // we should normalize them not to iterate non existing indexes
+    const normalizedStart = normalize(start, this.length);
+    const normalizedEnd = normalize(end, this.length);
+
+    const result = [];
+
+    // We take only elements from a given range
+    for (let i = normalizedStart; i < normalizedEnd; i++) {
+      result[result.length] = this[i];
+    }
+
+    return result;
+  };
+
+  function normalize(index, length) {
+    // If the index is too large then return the length
+    if (index > length) {
+      return length;
+    }
+
+    let normalizedIndex = index;
+
+    // index -3 means the 3rd element from the end
+    // it is (this.length - 3) or (-3 + this.length)
+    // so we add this.length to negative index
+    if (normalizedIndex < 0) {
+      normalizedIndex += length;
+    }
+
+    // If the index is still negative (after adding this.length)
+    // we set it to 0
+    if (normalizedIndex < 0) {
+      normalizedIndex = 0;
+    }
+
+    return normalizedIndex;
+  }
+};
