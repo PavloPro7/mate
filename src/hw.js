@@ -1978,4 +1978,14 @@ const joinReinvention = () => {
   console.log();
 };
 
-joinReinvention();
+const noMoreWordsWrap = () => {
+  const wish = `I want a short stylish haircut, like my brother's`;
+
+  function getOrder(wish, wordsCount) {
+    const splitedWish = wish.split(" ");
+    const slicedWish = splitedWish.slice(0, wordsCount);
+    const result = slicedWish.join(" ");
+
+    return result;
+  }
+};
