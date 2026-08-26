@@ -1989,3 +1989,64 @@ const noMoreWordsWrap = () => {
     return result;
   }
 };
+
+const mutatingAndNonmutatingMethods = () => {
+  "use strict";
+
+  const numbers = [3, 1, 12, 5, 2, 3, 4];
+  let result;
+
+  console.log(numbers);
+
+  /* Mutating methods */
+  // result = numbers.push(100, 200, 300);
+  // result = numbers.unshift(100, 200, 300);
+  // result = numbers.pop();
+  // result = numbers.shift();
+
+  // result = numbers.splice(2, 3, 200, 300); //deletes el-s starting with index 2
+  // result = numbers.fill('a', 2, 4); //replaces all values of array into parametr
+  // result = numbers.reverse();
+  // result = numbers.sort(); //by default sorts as strings, even int will be as string
+
+  /* Non mutating methods */
+  // result = numbers.includes(3);
+  // result = numbers.indexOf(3);
+  // result = numbers.lastIndexOf(3);
+  // result = numbers.join('-');
+  // result = numbers.slice(2, 5);
+
+  // result = numbers.concat(100, ['x', 'y'], 200, 300);
+
+  console.log("---------");
+  //
+ 
+
+
+
+
+  console.log(numbers);
+  console.log(result);
+};
+
+const arrayCopying = () => {
+
+  const numbers = [1, 2, 3, 4, 5];
+  // const result = numbers.slice();
+  // const result = numbers.concat();
+  // const result = Array.from(numbers);
+  const result = [
+    ...numbers.slice(0, 2),
+    100,
+    200,
+    300,
+    ...numbers.slice(4),
+  ];
+
+  result.push(999);
+
+  console.log(numbers);
+  console.log(result);
+}
+
+arrayCopying();
