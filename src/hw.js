@@ -2020,33 +2020,47 @@ const mutatingAndNonmutatingMethods = () => {
 
   console.log("---------");
   //
- 
-
-
-
 
   console.log(numbers);
   console.log(result);
 };
 
 const arrayCopying = () => {
-
   const numbers = [1, 2, 3, 4, 5];
   // const result = numbers.slice();
   // const result = numbers.concat();
   // const result = Array.from(numbers);
-  const result = [
-    ...numbers.slice(0, 2),
-    100,
-    200,
-    300,
-    ...numbers.slice(4),
-  ];
+  const result = [...numbers.slice(0, 2), 100, 200, 300, ...numbers.slice(4)];
 
   result.push(999);
 
   console.log(numbers);
   console.log(result);
-}
+};
 
-arrayCopying();
+const libraryChaos = () => {
+  const shelves = [
+    ["Going Over", "Brazen"],
+    ["The Enemy"],
+    ["Followers", "Belle Epoque"],
+  ];
+
+  let result = "word";
+  result = result.split("");
+
+  console.log(shelves);
+  console.log(result.reverse());
+};
+
+const reverseMessageWrap = () => {
+  function reverseMessage(message) {
+    const result = [];
+    const splitedMessage = message.split(" ");
+
+    for (const word of splitedMessage) {
+      result.push(word.split("").reverse().join(""));
+    }
+
+    return result.join(" ");
+  }
+};
