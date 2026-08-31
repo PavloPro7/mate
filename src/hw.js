@@ -2064,3 +2064,60 @@ const reverseMessageWrap = () => {
     return result.join(" ");
   }
 };
+
+const arrayDestructuring = () => {
+  const bob = {
+    name: "Bob",
+    surname: "Smith",
+    age: 33,
+    isMarried: true,
+  };
+
+  const song = "one two three four five";
+
+  printArray(123, song.split(" "));
+
+  function printArray(a, [x, , y = 999, ...otherWords]) {
+    // const [x, , y = 999, ...otherWords ] = words;
+
+    console.log(otherWords); //will be all beside first (x), second ( ), third (y) el-t
+  }
+
+  printObject(bob);
+
+  function printObject({ name, age: x, ...props }) {
+    // const { name, age: x, ...props } = user;
+
+    console.log(props);
+  }
+};
+
+arrayDestructuring();
+
+const shopCart = () => {
+  const order = "1 coca cola, 5 chicken nuggets, 20 egg";
+
+  function makeOrderList(order) {
+    const list = {};
+
+    if (!order) {
+      return list;
+    }
+
+    const products = order.split(", ");
+
+    for (const product of products) {
+      destructuredUnit(product.split(" "));
+    }
+
+    function destructuredUnit([value, ...key]) {
+      list[key.join("_")] = +value;
+    }
+
+    return list;
+  }
+
+  console.log(makeOrderList(order));
+};
+
+shopCart();
