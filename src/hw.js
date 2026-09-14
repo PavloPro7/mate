@@ -2243,8 +2243,6 @@ const arrayDestructuring = () => {
   }
 };
 
-arrayDestructuring();
-
 const shopCart = () => {
   const order = "1 coca cola, 5 chicken nuggets, 20 egg";
 
@@ -2279,4 +2277,63 @@ const techCheck = () => {
 
 }
 
-techCheck();
+const callBacksWrap = () => {
+
+  const examplArray = [1, 3, 5, 7];
+
+  console.log(...examplArray);
+
+
+  console.log(
+  calculate(add, 6, 3), // 9
+  calculate(subtract, 6, 3), // 3
+  calculate(multiply, 6, 3), // 18
+  // calculate(divide, 6, 3), // 2
+    calculate(
+      (a, b) => a / b,
+      6,
+      3
+    ), // 2
+);
+
+function calculate(operation, a, b) {
+  // switch (operation) {
+  //   case 'add':
+  //     return add(a, b);
+    
+  //   case 'subtract':
+  //     return subtract(a, b);
+    
+  //   case 'multiply':
+  //     return multiply(a, b);
+  // }
+  return operation(a, b);
+}
+  
+
+
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+  }
+
+function multiply(a, b) {
+  return a * b;
+}
+
+  function divide(a, b) {
+    return a / b;
+}
+
+  
+
+  const getClientStatus = () => 'vip';
+  const status = getClientStatus();
+
+  console.log(status);
+}
+
+callBacksWrap();
