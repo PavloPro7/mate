@@ -2336,4 +2336,31 @@ function multiply(a, b) {
   console.log(status);
 }
 
-callBacksWrap();
+callbackInALoop = () => {
+
+  printValues([1, 2, 3]);
+  printValues(
+    [10, 20, 30, 40, 50],
+    (val, ind) => `${ind}: ${val}`
+  );
+
+  function printValues(
+    values,
+    format = (value) => `Value is ${value}`
+  ) {
+    console.log('-----');
+
+    for (let i = 0; i < values.length; i++) {
+      // const message = `Value is ${values[i]}`;
+      const message = format(values[i], i);
+
+      console.log(message);
+    }
+  }
+
+
+
+
+}
+
+callbackInALoop();
