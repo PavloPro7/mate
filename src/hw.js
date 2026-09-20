@@ -2343,8 +2343,6 @@ const iifeWrap = () => {
 };
 
 const timersAndEventHandlers = () => {
-
-
   // document.addEventListener('click', () => {
   //   document.body.textContent = '123';
 
@@ -2365,14 +2363,65 @@ const timersAndEventHandlers = () => {
   //   }, 5000)
   // });
 
+  const randomElement = document.querySelector("body");
 
-  const randomElement = document.querySelector('body');
-
-  randomElement.addEventListener('click', (event) => {
+  randomElement.addEventListener("click", (event) => {
     console.log(event.target);
-  })
+  });
+};
+
+const filterAndCallback = () => {
+  const candies1 = [
+    "KitKat",
+    "Nuts",
+    "Lion",
+    "Mars",
+    "Snickers",
+    "Bounty",
+    "Nuts",
+  ];
+  const candies2 = [
+    "Nuts",
+    "Nuts",
+    "Nuts",
+    "Snickers",
+    "Snickers",
+    "Snickers",
+    "Mars",
+  ];
+
+  const cantainsO = (candy) => candy.includes("o");
+  const isLessThan5 = (candy) => candy.length < 5;
+
+  function filter(items, callback) {
+    let result = [];
+    for (let i = 0; i < items.length; i++) {
+      if (callback(items[i])) {
+        result.push(items[i]);
+      }
+    }
+
+    return result;
+  }
+
+  console.log(
+    filter(candies1, cantainsO), //['Lion', 'Bounty']
+  );
+
+  console.log(
+    filter(candies2, isLessThan5), //['Nuts', 'Nuts', 'Nuts', 'Mars'])
+  );
+};
+
+const filterFactoryCallback = () => {
+  const candies1 = [
+    "Kitkat",
+    "Nuts",
+    "Lion",
+    "Mars",
+    "Snickers",
+    "Bounty",
+    "Nuts",
+  ];
 
 
-}
-
-timersAndEventHandlers();
