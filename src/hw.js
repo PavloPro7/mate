@@ -2341,3 +2341,38 @@ const iifeWrap = () => {
     console.log(x + y);
   })(2, 3);
 };
+
+const timersAndEventHandlers = () => {
+
+
+  // document.addEventListener('click', () => {
+  //   document.body.textContent = '123';
+
+  //   // setTimeout(() => {
+  //   //   document.body.textContent = '456'
+  //   // }, 1000);
+
+  //   const timerId = setInterval(() => {
+  //     document.body.textContent = Date.now(); //ms from 01.01.1970
+  //   }, 100);
+
+  //   document.addEventListener('contextmenu', () => {
+  //     clearInterval(timerId);
+  //   });
+
+  //   setTimeout(() => {
+  //     clearInterval(timerId);
+  //   }, 5000)
+  // });
+
+
+  const randomElement = document.querySelector('body');
+
+  randomElement.addEventListener('click', (event) => {
+    console.log(event.target);
+  })
+
+
+}
+
+timersAndEventHandlers();
