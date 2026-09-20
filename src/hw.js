@@ -715,9 +715,7 @@ const canTheyBookWrap = () => {
     const hasEnoughAdults =
       childrenCount + babiesCount <= 2 * adultsCount && adultsCount > 0;
 
-    return (
-      (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults
-    );
+    return (withoutBabiesCapability || withBabiesCapability) && hasEnoughAdults;
   }
 
   console.log(canTheyBook(2, 3, 1));
@@ -2270,85 +2268,64 @@ const shopCart = () => {
 };
 
 const techCheck = () => {
-
-
-  console.log([1, 2, 3, 4].slice(1, 3))
-
-
-}
+  console.log([1, 2, 3, 4].slice(1, 3));
+};
 
 const callBacksWrap = () => {
-
   const examplArray = [1, 3, 5, 7];
 
   console.log(...examplArray);
 
-
   console.log(
-  calculate(add, 6, 3), // 9
-  calculate(subtract, 6, 3), // 3
-  calculate(multiply, 6, 3), // 18
-  // calculate(divide, 6, 3), // 2
-    calculate(
-      (a, b) => a / b,
-      6,
-      3
-    ), // 2
-);
+    calculate(add, 6, 3), // 9
+    calculate(subtract, 6, 3), // 3
+    calculate(multiply, 6, 3), // 18
+    // calculate(divide, 6, 3), // 2
+    calculate((a, b) => a / b, 6, 3), // 2
+  );
 
-function calculate(operation, a, b) {
-  // switch (operation) {
-  //   case 'add':
-  //     return add(a, b);
-    
-  //   case 'subtract':
-  //     return subtract(a, b);
-    
-  //   case 'multiply':
-  //     return multiply(a, b);
-  // }
-  return operation(a, b);
-}
-  
+  function calculate(operation, a, b) {
+    // switch (operation) {
+    //   case 'add':
+    //     return add(a, b);
 
+    //   case 'subtract':
+    //     return subtract(a, b);
 
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
+    //   case 'multiply':
+    //     return multiply(a, b);
+    // }
+    return operation(a, b);
   }
 
-function multiply(a, b) {
-  return a * b;
-}
+  function add(a, b) {
+    return a + b;
+  }
+
+  function subtract(a, b) {
+    return a - b;
+  }
+
+  function multiply(a, b) {
+    return a * b;
+  }
 
   function divide(a, b) {
     return a / b;
-}
+  }
 
-  
-
-  const getClientStatus = () => 'vip';
+  const getClientStatus = () => "vip";
   const status = getClientStatus();
 
   console.log(status);
-}
+};
 
 callbackInALoop = () => {
-
   printValues([1, 2, 3]);
-  printValues(
-    [10, 20, 30, 40, 50],
-    (val, ind) => `${ind}: ${val}`
-  );
+  printValues([10, 20, 30, 40, 50], (val, ind) => `${ind}: ${val}`);
 
-  function printValues(
-    values,
-    format = (value) => `Value is ${value}`
-  ) {
-    console.log('-----');
+  function printValues(values, format = (value) => `Value is ${value}`) {
+    console.log("-----");
 
     for (let i = 0; i < values.length; i++) {
       // const message = `Value is ${values[i]}`;
@@ -2357,10 +2334,10 @@ callbackInALoop = () => {
       console.log(message);
     }
   }
+};
 
-
-
-
-}
-
-callbackInALoop();
+const iifeWrap = () => {
+  (function (x, y) {
+    console.log(x + y);
+  })(2, 3);
+};
