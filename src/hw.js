@@ -2424,4 +2424,87 @@ const filterFactoryCallback = () => {
     "Nuts",
   ];
 
+  function filter(candies, isGoodEnough) {
+    const result = [];
+
+    for (const candy of candies) {
+      if (isGoodEnough(candy)) {
+        result.push(candy);
+      }
+    }
+
+    return result;
+  }
+
+  function createSizeFilter(size) {
+    // const respectConditions = (candy) => {
+    //   if (candy.length <= size) {
+    //     return true;
+    //   }
+    // };
+
+    // return respectConditions;
+    return (candy) => candy.length <= size;
+  }
+
+  const isUpTo4 = createSizeFilter(4);
+  const isUpTo6 = createSizeFilter(6);
+
+  console.log(
+    filter(candies1, isUpTo4), // ['Nuts', 'Lion', 'Mars', 'Nuts'];
+    filter(candies1, isUpTo6), // ['Kitkat', 'Nuts', 'Lion', 'Mars', 'Bounty', 'Nuts'];
+  );
+};
+
+const advancedCalculator = () => {
+  const makeCalculator = () => {
+    const calculator = {
+      result: 0,
+
+      operate(operation, value) {
+        operation(this, value);
+
+        return this;
+      },
+
+      reset() {
+        this.result = 0;
+
+        return this;
+      },
+
+      add(object, value) {
+        object.result = object.result + value;
+      },
+
+      subtract(object, value) {
+        object.result = object.result - value;
+      },
+
+      divide(object, value) {
+        object.result = object.result / value;
+      },
+
+      multiply(object, value) {
+        object.result = object.result * value;
+      },
+    };
+
+    return calculator;
+  };
+
+  const upCalculator = makeCalculator();
+
+  upCalculator
+    .operate(upCalculator.add, 5)
+    .operate(upCalculator.add, 5)
+    .reset()
+    .operate(upCalculator.subtract, 4)
+    .operate(upCalculator.divide, 2)
+    .operate(upCalculator.multiply, 2);
+
+  console.log(upCalculator.result);
+};
+
+advancedCalculator();
 
