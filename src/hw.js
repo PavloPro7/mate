@@ -2558,9 +2558,6 @@ const whoIsOnlineWrap = () => {
 function whoIsOnline(friends) {
   const status = {};
 
-  if (friends !== []) {
-    
-  }
 
   for (const friend of friends) {
     switch (true) {
@@ -2614,4 +2611,20 @@ console.log(whoIsOnline(myFriends))
 
 }
 
-whoIsOnlineWrap();
+const countLetterInStringWrap = () => {
+  function countLettersInString(str) {
+  const result = {};
+
+  for (const char of str) {
+    result[char] = 1;
+  }
+
+  return result;
+}
+
+  
+  console.log(countLettersInString('abc'))
+  console.log(typeof [1, 2])
+}
+
+countLetterInStringWrap();
