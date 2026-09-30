@@ -2549,6 +2549,69 @@ const romanToIntWrap = () => {
   const randRomNum = "XIX";
 
   console.log(romanToInt(randRomNum));
+  console.log('a' === 'A')
 };
 
-romanToIntWrap();
+const whoIsOnlineWrap = () => {
+
+
+function whoIsOnline(friends) {
+  const status = {};
+
+  if (friends !== []) {
+    
+  }
+
+  for (const friend of friends) {
+    switch (true) {
+      case friend.status === 'online' && friend.lastActivity <= 10:
+      if (!('online' in status)){
+        status.online = [];
+      }
+      status.online.push(friend.username);
+      break;
+
+      case friend.status === 'online' && friend.lastActivity > 10:
+      if (!('away' in status)) {
+        status.away = [];
+      }
+      status.away.push(friend.username);
+      break;
+
+      default:
+      if (!('offline' in status)) {
+        status.offline = [];
+      }
+      status.offline.push(friend.username);
+      break;
+    }
+  }
+
+  return status;
+}
+
+
+  const myFriends = [{
+    username: 'Alice',
+    status: 'online',
+    lastActivity: 10
+  }, {
+    username: 'Lucy',
+    status: 'offline',
+    lastActivity: 22
+  }, {
+    username: 'Bob',
+    status: 'online',
+    lastActivity: 104
+  }];
+
+
+console.log(whoIsOnline(myFriends))
+
+
+
+
+
+}
+
+whoIsOnlineWrap();
