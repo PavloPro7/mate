@@ -2507,12 +2507,48 @@ const advancedCalculator = () => {
 };
 
 const sortNumbers = () => {
-
-  const numbers = [4, 3, 6, 9, 1]
+  const numbers = [4, 3, 6, 9, 1];
 
   numbers.sort((a, b) => a - b);
   console.log(numbers);
+};
 
+const romanToIntWrap = () => {
+  function romanToInt(romanNum) {
+
+  let int = 0;
+  const romanArray = romanNum.split('');
+  const intArray = [];
+
+  const romanDecoding = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  for (let i = 0; i < romanArray.length; i++) {
+    intArray.push(romanDecoding[romanArray[i]]);
+  }
+
+  for (let i = 0; i < intArray.length; i++) {
+    int += intArray[i];
+
+    if (intArray[i] > intArray[i - 1]) {
+      int = int - (intArray[i - 1] * 2);
+    }
+  }
+
+  return int;
 }
 
-sortNumbers();
+
+  const randRomNum = "XIX";
+
+  console.log(romanToInt(randRomNum));
+};
+
+romanToIntWrap();
