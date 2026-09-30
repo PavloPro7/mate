@@ -2506,5 +2506,13 @@ const advancedCalculator = () => {
   console.log(upCalculator.result);
 };
 
-advancedCalculator();
+const sortNumbers = () => {
 
+  const numbers = [4, 3, 6, 9, 1]
+
+  numbers.sort((a, b) => a - b);
+  console.log(numbers);
+
+}
+
+sortNumbers();
