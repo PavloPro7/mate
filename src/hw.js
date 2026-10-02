@@ -2515,116 +2515,171 @@ const sortNumbers = () => {
 
 const romanToIntWrap = () => {
   function romanToInt(romanNum) {
+    let int = 0;
+    const romanArray = romanNum.split("");
+    const intArray = [];
 
-  let int = 0;
-  const romanArray = romanNum.split('');
-  const intArray = [];
+    const romanDecoding = {
+      I: 1,
+      V: 5,
+      X: 10,
+      L: 50,
+      C: 100,
+      D: 500,
+      M: 1000,
+    };
 
-  const romanDecoding = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-
-  for (let i = 0; i < romanArray.length; i++) {
-    intArray.push(romanDecoding[romanArray[i]]);
-  }
-
-  for (let i = 0; i < intArray.length; i++) {
-    int += intArray[i];
-
-    if (intArray[i] > intArray[i - 1]) {
-      int = int - (intArray[i - 1] * 2);
+    for (let i = 0; i < romanArray.length; i++) {
+      intArray.push(romanDecoding[romanArray[i]]);
     }
+
+    for (let i = 0; i < intArray.length; i++) {
+      int += intArray[i];
+
+      if (intArray[i] > intArray[i - 1]) {
+        int = int - intArray[i - 1] * 2;
+      }
+    }
+
+    return int;
   }
-
-  return int;
-}
-
 
   const randRomNum = "XIX";
 
   console.log(romanToInt(randRomNum));
-  console.log('a' === 'A')
+  console.log("a" === "A");
 };
 
 const whoIsOnlineWrap = () => {
+  function whoIsOnline(friends) {
+    const status = {};
 
+    for (const friend of friends) {
+      switch (true) {
+        case friend.status === "online" && friend.lastActivity <= 10:
+          if (!("online" in status)) {
+            status.online = [];
+          }
+          status.online.push(friend.username);
+          break;
 
-function whoIsOnline(friends) {
-  const status = {};
+        case friend.status === "online" && friend.lastActivity > 10:
+          if (!("away" in status)) {
+            status.away = [];
+          }
+          status.away.push(friend.username);
+          break;
 
-
-  for (const friend of friends) {
-    switch (true) {
-      case friend.status === 'online' && friend.lastActivity <= 10:
-      if (!('online' in status)){
-        status.online = [];
+        default:
+          if (!("offline" in status)) {
+            status.offline = [];
+          }
+          status.offline.push(friend.username);
+          break;
       }
-      status.online.push(friend.username);
-      break;
-
-      case friend.status === 'online' && friend.lastActivity > 10:
-      if (!('away' in status)) {
-        status.away = [];
-      }
-      status.away.push(friend.username);
-      break;
-
-      default:
-      if (!('offline' in status)) {
-        status.offline = [];
-      }
-      status.offline.push(friend.username);
-      break;
     }
+
+    return status;
   }
 
-  return status;
-}
+  const myFriends = [
+    {
+      username: "Alice",
+      status: "online",
+      lastActivity: 10,
+    },
+    {
+      username: "Lucy",
+      status: "offline",
+      lastActivity: 22,
+    },
+    {
+      username: "Bob",
+      status: "online",
+      lastActivity: 104,
+    },
+  ];
 
-
-  const myFriends = [{
-    username: 'Alice',
-    status: 'online',
-    lastActivity: 10
-  }, {
-    username: 'Lucy',
-    status: 'offline',
-    lastActivity: 22
-  }, {
-    username: 'Bob',
-    status: 'online',
-    lastActivity: 104
-  }];
-
-
-console.log(whoIsOnline(myFriends))
-
-
-
-
-
-}
+  console.log(whoIsOnline(myFriends));
+};
 
 const countLetterInStringWrap = () => {
   function countLettersInString(str) {
-  const result = {};
+    const result = {};
 
-  for (const char of str) {
-    result[char] = 1;
+    for (const char of str) {
+      result[char] = 1;
+    }
+
+    return result;
   }
 
-  return result;
-}
+  console.log(countLettersInString("abc"));
+  console.log(typeof [1, 2]);
+};
 
+const arrayForEach = () => {
+  const words = ["one", "two", "three", "four", "five", "six"];
+
+  words.runForEach = function (callback) {
+    console.log(this);
+
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
+  };
+
+  words.runForEach((item, index, items) => {
+    console.log(item, index, items);
+  });
+
+  console.log('-------');
+
+  words.forEach((item, index, items) => {
+    console.log(item, index, items);
+  });
+};
+
+const iterationMethods = () => {
+
+  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+  function forEach(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i, this);
+    }
+  }
+
+  // const result = words.forEach((word, index) => {
+  //   console.log(words.length);
+  // });
+  // const result = words.map((word, index, items) => word.length + index);
+  // const result = words.filter((word, index, items) => word.length > 3);
+  // const result = words.find((word, index, items) => {
+  //   console.log(word);
+
+  //   return word.length > 8;
+  // });
+  // const result = words.some((word, index, items) => {
+  //   console.log(word);
+
+  //   return word.length > 3;
+  // });
+  const result = words.every((word, index, items) => {
+    console.log(word);
+
+    return word.length > 4;
+  });
   
-  console.log(countLettersInString('abc'))
-  console.log(typeof [1, 2])
+  
+  
+  console.log(result);
+
+
+
+
+
+
 }
 
-countLetterInStringWrap();
+iterationMethods();
