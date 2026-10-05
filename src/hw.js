@@ -2682,4 +2682,27 @@ const iterationMethods = () => {
 
 }
 
-iterationMethods();
+const filterWrap = () => {
+
+  numbers = [0, 10, 20, 30];
+
+  numbers.filter = function(callback) {
+  const result = [];
+
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      result.push(this[i]);
+    }
+  }
+
+  return result;
+};
+
+
+  console.log(
+    numbers.filter((item, index) => index > 0)
+  );
+
+}
+
+filterWrap();
