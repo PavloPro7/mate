@@ -2705,4 +2705,31 @@ const filterWrap = () => {
 
 }
 
-filterWrap();
+mapWrap = () => {
+  console.log(parseInt("ff", 16));
+  // 255 (lower-case hexadecimal)
+  console.log(parseInt("1.9"));
+  // 1 (decimal part is truncated)
+  
+  console.log(
+    ['1', '2', '3'].map(parseInt),
+    ['1', '2', '3'].map((str) => parseInt(str, 10)),
+    parseInt('1', 0),
+    ['1', '2', '3'].map(Number),
+  );
+
+
+
+  const arrayLike = {
+    length: 3,
+    0: 2,
+    1: 3,
+    2: 4,
+    3: 5, //ignored, since length is 3
+  };
+  console.log(
+    Array.prototype.map.call(arrayLike, (x) => x ** 2)
+  )
+}
+
+mapWrap();
