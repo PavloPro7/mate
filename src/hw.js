@@ -2633,7 +2633,7 @@ const arrayForEach = () => {
     console.log(item, index, items);
   });
 
-  console.log('-------');
+  console.log("-------");
 
   words.forEach((item, index, items) => {
     console.log(item, index, items);
@@ -2641,8 +2641,7 @@ const arrayForEach = () => {
 };
 
 const iterationMethods = () => {
-
-  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+  const words = ["one", "two", "three", "four", "five", "six"];
 
   function forEach(callback) {
     for (let i = 0; i < this.length; i++) {
@@ -2670,55 +2669,40 @@ const iterationMethods = () => {
 
     return word.length > 4;
   });
-  
-  
-  
+
   console.log(result);
-
-
-
-
-
-
-}
-
-const filterWrap = () => {
-
-  numbers = [0, 10, 20, 30];
-
-  numbers.filter = function(callback) {
-  const result = [];
-
-  for (let i = 0; i < this.length; i++) {
-    if (callback(this[i], i, this)) {
-      result.push(this[i]);
-    }
-  }
-
-  return result;
 };
 
+const filterWrap = () => {
+  numbers = [0, 10, 20, 30];
 
-  console.log(
-    numbers.filter((item, index) => index > 0)
-  );
+  numbers.filter = function (callback) {
+    const result = [];
 
-}
+    for (let i = 0; i < this.length; i++) {
+      if (callback(this[i], i, this)) {
+        result.push(this[i]);
+      }
+    }
+
+    return result;
+  };
+
+  console.log(numbers.filter((item, index) => index > 0));
+};
 
 mapWrap = () => {
   console.log(parseInt("ff", 16));
   // 255 (lower-case hexadecimal)
   console.log(parseInt("1.9"));
   // 1 (decimal part is truncated)
-  
+
   console.log(
-    ['1', '2', '3'].map(parseInt),
-    ['1', '2', '3'].map((str) => parseInt(str, 10)),
-    parseInt('1', 0),
-    ['1', '2', '3'].map(Number),
+    ["1", "2", "3"].map(parseInt),
+    ["1", "2", "3"].map((str) => parseInt(str, 10)),
+    parseInt("1", 0),
+    ["1", "2", "3"].map(Number),
   );
-
-
 
   const arrayLike = {
     length: 3,
@@ -2727,9 +2711,34 @@ mapWrap = () => {
     2: 4,
     3: 5, //ignored, since length is 3
   };
-  console.log(
-    Array.prototype.map.call(arrayLike, (x) => x ** 2)
-  )
-}
+  console.log(Array.prototype.map.call(arrayLike, (x) => x ** 2));
+};
 
-mapWrap();
+const someWrap = () => {
+  const TRUTHY_VALUES = [true, "true", 1];
+
+  function getBoolean(value) {
+    if (typeof value === "string") {
+      value = value.toLowerCase().trim();
+    }
+
+    return TRUTHY_VALUES.some((t) => t === value);
+  }
+
+  console.log(
+    getBoolean(false), //false
+    getBoolean("false"), //false
+    getBoolean(1), //true
+    getBoolean("true"), //true
+  );
+
+  const numbers = [3, -1, 4, 5, 6, 7];
+  const isIncreasing = !numbers
+    .filter((num) => num > 0)
+    .some((num, idx, arr) => {
+      if (idx === 0) return false;
+      return num <= arr[idx - 1];
+    });
+  console.log(isIncreasing); //false
+};
+
