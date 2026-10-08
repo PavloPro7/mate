@@ -2742,3 +2742,27 @@ const someWrap = () => {
   console.log(isIncreasing); //false
 };
 
+const countMatchingSocksWrap = () => {
+  function countMatchingSocks(colors) {
+    const socks = {};
+    let totalSocksPairs = 0;
+
+    for (const color of colors) {
+      if (color in socks) {
+        delete socks[color];
+        totalSocksPairs++;
+        continue;
+      }
+
+      socks[color] = 1;
+    }
+
+    return totalSocksPairs;
+  }
+
+  console.log(
+    countMatchingSocks()
+  );
+};
+
+countMatchingSocksWrap();
