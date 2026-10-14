@@ -2743,6 +2743,7 @@ const someWrap = () => {
 };
 
 const countMatchingSocksWrap = () => {
+  const numbers = [10, 10, 20, 30, 20];
   function countMatchingSocks(colors) {
     const socks = {};
     let totalSocksPairs = 0;
@@ -2761,8 +2762,18 @@ const countMatchingSocksWrap = () => {
   }
 
   console.log(
-    countMatchingSocks()
+    countMatchingSocks(numbers)
   );
 };
 
-countMatchingSocksWrap();
+methodChaining = () => {
+  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+  const result = words
+    .map((word, index) => ({ name: word, index }))
+    .filter(({ name, index }) => name.length > index)
+    .find(({ name, index }) => name[index] === 'o')
+  
+  console.log(result);
+}
+
