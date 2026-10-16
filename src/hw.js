@@ -2777,3 +2777,23 @@ methodChaining = () => {
   console.log(result);
 }
 
+methodReduceWrap = () => {
+
+  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+
+  const result = words
+    // .map((word) => ({[word]: word.length}))
+    .reduce((prev, item, index, items) => {
+      // console.log(prev, item, 1)
+      return { ...prev, [item]: index };
+    }, {});
+
+
+  console.log(result); //aggregation
+
+
+
+
+}
+
+methodReduceWrap();
