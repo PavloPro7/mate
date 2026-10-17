@@ -2761,25 +2761,22 @@ const countMatchingSocksWrap = () => {
     return totalSocksPairs;
   }
 
-  console.log(
-    countMatchingSocks(numbers)
-  );
+  console.log(countMatchingSocks(numbers));
 };
 
 methodChaining = () => {
-  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+  const words = ["one", "two", "three", "four", "five", "six"];
 
   const result = words
     .map((word, index) => ({ name: word, index }))
     .filter(({ name, index }) => name.length > index)
-    .find(({ name, index }) => name[index] === 'o')
-  
+    .find(({ name, index }) => name[index] === "o");
+
   console.log(result);
-}
+};
 
 methodReduceWrap = () => {
-
-  const words = ['one', 'two', 'three', 'four', 'five', 'six'];
+  const words = ["one", "two", "three", "four", "five", "six"];
 
   const result = words
     // .map((word) => ({[word]: word.length}))
@@ -2788,12 +2785,56 @@ methodReduceWrap = () => {
       return { ...prev, [item]: index };
     }, {});
 
-
   console.log(result); //aggregation
+};
 
+const methodSort = () => {
+  const rooms = [
+    { name: "cantine", square: 18 },
+    { name: "kitchen", square: 12 },
+    { name: "living room", square: 25 },
+    { name: "bedroom", square: 16 },
+    { name: "childroom", square: 20 },
+    { name: "wardrobe", square: 6 },
+  ];
 
+  const sortedRooms = [...rooms].sort((room1, room2) => {
+    // return room1.name > room2.name ? 1 : -1;
+    // return -room1.name.localeCompare(room2.name);
+    return room1.square - room2.square;
+  });
 
+  console.log(sortedRooms === rooms); ///false , and true, without ...spread operator
+};
 
-}
+const mimicSort = () => {
+  let numbers = [1, 5, 26, 9, 4, 6, 13, 23, 23];
 
-methodReduceWrap();
+  numbers.sort = function (callback) {
+    for (let i = 0; i < this.length - 1; i++) {
+      const shouldSwap = callback
+        ? callback(this[i], this[i + 1]) > 0
+        : this[i].toString() > this[i + 1].toString();
+
+      if (shouldSwap) {
+        [this[i], this[i + 1]] = [this[i + 1], this[i]];
+        i = i > 0 ? i - 2 : -1;
+      }
+
+      // if (i % (this.length - 2) === 0 && i !== 0) {
+      //   i = -1
+      // }
+    }
+    return this;
+  };
+
+  console.log(numbers.sort((a, b) => a - b));
+  // let emptyArr = [];
+  // const sum = ['a', 'b']
+  // console.log(
+  //   numbers = [...numbers, sum[1]],
+  //   emptyArr = [sum[0], ...emptyArr]
+  // );
+};
+
+mimicSort();
