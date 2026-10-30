@@ -2837,4 +2837,22 @@ const mimicSort = () => {
   // );
 };
 
-mimicSort();
+const brainWarmUp = () => {
+  function filterPeople(people) {
+    return people.filter(
+      ({ firstName, lastName }) => {
+        const result = firstName.length <= 4 && lastName.length > 8 ? true : false;
+
+        return result;
+      }
+    )
+  }
+
+  function getPersonById(id, people) {
+    return people.find(({ id: idToFind }) => idToFind === id) || null;
+  }
+  let word = 'name';
+  console.log(word.at(-1), word.endsWith('e'))
+}
+
+brainWarmUp();
