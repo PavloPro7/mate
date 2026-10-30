@@ -2855,4 +2855,19 @@ const brainWarmUp = () => {
   console.log(word.at(-1), word.endsWith('e'))
 }
 
-brainWarmUp();
+const setterExamples = () => {
+  const language = {
+    set current(name) {
+      this.log.push(name);
+    },
+    log: [],
+  };
+
+  language.current = 'EN';
+  language.current = 'FA';
+  language.current = 'GE';
+
+  console.log(language.log);
+}
+
+setterExamples();
