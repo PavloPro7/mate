@@ -2839,21 +2839,20 @@ const mimicSort = () => {
 
 const brainWarmUp = () => {
   function filterPeople(people) {
-    return people.filter(
-      ({ firstName, lastName }) => {
-        const result = firstName.length <= 4 && lastName.length > 8 ? true : false;
+    return people.filter(({ firstName, lastName }) => {
+      const result =
+        firstName.length <= 4 && lastName.length > 8 ? true : false;
 
-        return result;
-      }
-    )
+      return result;
+    });
   }
 
   function getPersonById(id, people) {
     return people.find(({ id: idToFind }) => idToFind === id) || null;
   }
-  let word = 'name';
-  console.log(word.at(-1), word.endsWith('e'))
-}
+  let word = "name";
+  console.log(word.at(-1), word.endsWith("e"));
+};
 
 const setterExamples = () => {
   const language = {
@@ -2863,11 +2862,69 @@ const setterExamples = () => {
     log: [],
   };
 
-  language.current = 'EN';
-  language.current = 'FA';
-  language.current = 'GE';
+  language.current = "EN";
+  language.current = "FA";
+  language.current = "GE";
 
   console.log(language.log);
-}
+};
 
-setterExamples();
+const convertToObjectWrap = () => {
+  function convertToObject(sourceString) {
+    return (
+      sourceString
+        // .replace(/\s+/g, '')
+        .split(";")
+        .map((style) => {
+          const property = style.slice(0, style.indexOf(":")).trim();
+          const value = style.slice(style.indexOf(":") + 1).trim();
+
+          return [property, value];
+        })
+        .filter((style) => style[0].length > 0)
+        .map(([property, value]) => ({ [property]: value }))
+        .reduce((prev, current) => Object.assign(prev, current), {})
+    );
+  }
+
+  const string = `
+  background-color:      #fff;
+-webkit-border-radius: 5px;
+  border-radius     : 5px;
+  border: 1px solid #e8e8e8;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  clear   : both       ;
+  cursor: pointer;
+  float: left;
+  font-family: inherit;
+      font-size: 14px;
+  font-weight: 400;
+  height: 42px;
+  line-height:    40px;
+  outline: 0;
+  padding-left    : 18px;
+  padding-right: 30px;
+  ;
+
+  ;
+  position: relative;
+
+
+  text-align: left !important;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+
+  white-space: nowrap;
+  width: auto;
+`;
+
+  console.log(convertToObject(string));
+};
+
+convertToObjectWrap();
+
