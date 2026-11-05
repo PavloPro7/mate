@@ -2926,5 +2926,23 @@ const convertToObjectWrap = () => {
   console.log(convertToObject(string));
 };
 
-convertToObjectWrap();
+const palgramWrap = (str) => {
+  let word = `S   
+  um`;
+  console.log(word.replace("a", "").replace(/\s+/g, "").toLowerCase().length);
 
+  function isPangram(str) {
+    const formatedString = str.replace(/\s+/g, "").toLowerCase();
+    let pangram = "abcdefghijklmnopqrstuvwxyz";
+
+    for (let i = 0; i < formatedString.length; i++) {
+      pangram = pangram.replace(formatedString[i], "");
+    }
+
+    return pangram;
+  }
+
+  console.log(isPangram(str));
+};
+
+palgramWrap('abcdefghijklmnOpqrstuvwxyz Z z d');
