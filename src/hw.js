@@ -2945,4 +2945,28 @@ const palgramWrap = (str) => {
   console.log(isPangram(str));
 };
 
-palgramWrap('abcdefghijklmnOpqrstuvwxyz Z z d');
+const sorterByWrap = () => {
+  const carolus = { name: "Carolus Haverbeke", sex: "m", born: 1832, died: 1905,};
+  const emma = { name: "Emma de Milliano", sex: "f", born: 1876, died: 1956 };
+  const maria = { name: "Maria de Rycke", sex: "f", born: 1683, died: 1724 };
+  const carel = { name: "Carel Haverbeke", sex: "m", born: 1796, died: 1837 };
+  const people = [carolus, emma, maria, carel];
+
+  function createSorterBy(field) {
+    return (person1, person2) => {
+
+
+      return person1[field] > person2[field] ? 1 : -1;
+    };
+  }
+
+  console.log(
+    people.sort(createSorterBy("name")),
+    people.sort(createSorterBy("born")),
+  );
+
+  people.sort(createSorterBy("name")); // [carel, carolus, emma, maria]
+  people.sort(createSorterBy("born")); // [maria, carel, carolus, emma]
+};
+
+sorterByWrap();
