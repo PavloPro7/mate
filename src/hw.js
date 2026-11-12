@@ -2969,4 +2969,85 @@ const sorterByWrap = () => {
   people.sort(createSorterBy("born")); // [maria, carel, carolus, emma]
 };
 
-sorterByWrap();
+const scopeAndLexicalEnvironment = () => {
+
+  let a = 1; // Global scope
+
+  if (true) {
+    // #LE_2 = { b: 2 }
+    let b = 2; // Block scope
+
+    if (true) {
+      // #LE_2 = { c: 3 }
+      let c = 3 // Block scope of nested block
+
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+
+
+  }
+
+      
+
+  console.log(window.Math)
+
+}
+
+const closureWrap = () => {
+
+  let x = 1;
+  let increment;
+  let print;
+
+  if (true) {
+    let x = 10;
+
+    increment = function() {
+      x++;
+    };
+
+    print = function () {
+      console.log(x);
+    }
+  }
+
+  if (true) {
+    let x = 100;
+
+    print();
+  }
+
+  x = 999;
+
+  increment();
+  increment();
+  increment();
+  increment();
+
+  print();
+}
+
+const constructRectangle = () => {
+function constructRectangle(area) {
+  const divisors = [];
+
+  for (let i = 1; i <= area; i++) {
+    if (area % i === 0) {
+      divisors.push(i);
+    }
+  }
+
+  const isOdd = divisors.length % 2 !== 0;
+  const mid = Math.floor(divisors.length / 2);
+
+  return isOdd
+    ? [divisors[mid], divisors[mid]]
+    : [divisors[mid], divisors[mid - 1]];
+}
+
+
+}
+
+constructRectangle();
